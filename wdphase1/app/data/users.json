@@ -1,0 +1,151 @@
+{
+    "customers": [
+      {
+        "name": "Alice",
+        "surname": "Smith",
+        "shipping_address": "456 Oak St, Townsville",
+        "username": "alice123",
+        "password": "pass123",
+        "money_balance": 1500
+      },
+      {
+        "name": "Bob",
+        "surname": "Johnson",
+        "shipping_address": "789 Pine St, Cityville",
+        "username": "bob456",
+        "password": "pass456",
+        "money_balance": 2000
+      },
+      {
+        "name": "Charlie",
+        "surname": "Brown",
+        "shipping_address": "321 Elm St, Villagetown",
+        "username": "charlie789",
+        "password": "pass789",
+        "money_balance": 1800
+      },
+      {
+        "name": "David",
+        "surname": "Lee",
+        "shipping_address": "654 Birch St, Hamletville",
+        "username": "david101",
+        "password": "pass101",
+        "money_balance": 2200
+      },
+      {
+        "name": "Eve",
+        "surname": "Davis",
+        "shipping_address": "987 Maple St, Suburbia",
+        "username": "eve202",
+        "password": "pass202",
+        "money_balance": 1900
+      },
+      {
+        "name": "Frank",
+        "surname": "Wilson",
+        "shipping_address": "123 Cedar St, Riverside",
+        "username": "frank303",
+        "password": "pass303",
+        "money_balance": 1600
+      },
+      {
+        "name": "Grace",
+        "surname": "Anderson",
+        "shipping_address": "456 Oak St, Hillside",
+        "username": "grace404",
+        "password": "pass404",
+        "money_balance": 2300
+      },
+      {
+        "name": "Harry",
+        "surname": "Martinez",
+        "shipping_address": "789 Pine St, Lakeside",
+        "username": "harry505",
+        "password": "pass505",
+        "money_balance": 2100
+      },
+      {
+        "name": "Ivy",
+        "surname": "Garcia",
+        "shipping_address": "321 Elm St, Mountainview",
+        "username": "ivy606",
+        "password": "pass606",
+        "money_balance": 1750
+      },
+      {
+        "name": "Jack",
+        "surname": "Hernandez",
+        "shipping_address": "654 Birch St, Seaside",
+        "username": "jack707",
+        "password": "pass707",
+        "money_balance": 1950
+      }
+    ],
+    "sellers": [
+      {
+        "company_name": "ElectroMart",
+        "username": "electromart",
+        "password": "sellpass1",
+        "bank_account": "111122223333"
+      },
+      {
+        "company_name": "FashionHub",
+        "username": "fashionhub",
+        "password": "sellpass2",
+        "bank_account": "444455556666"
+      },
+      {
+        "company_name": "HomeGoods",
+        "username": "homegoods",
+        "password": "sellpass3",
+        "bank_account": "777788889999"
+      },
+      {
+        "company_name": "ToyLand",
+        "username": "toyland",
+        "password": "sellpass4",
+        "bank_account": "101112131415"
+      },
+      {
+        "company_name": "BookBarn",
+        "username": "bookbarn",
+        "password": "sellpass5",
+        "bank_account": "161718192021"
+      },
+      {
+        "company_name": "TechWorld",
+        "username": "techworld",
+        "password": "sellpass6",
+        "bank_account": "222324252627"
+      },
+      {
+        "company_name": "SportsZone",
+        "username": "sportszone",
+        "password": "sellpass7",
+        "bank_account": "282930313233"
+      },
+      {
+        "company_name": "FoodCorner",
+        "username": "foodcorner",
+        "password": "sellpass8",
+        "bank_account": "343536373839"
+      },
+      {
+        "company_name": "PetParadise",
+        "username": "petparadise",
+        "password": "sellpass9",
+        "bank_account": "404142434445"
+      },
+      {
+        "company_name": "GardenGrove",
+        "username": "gardengrove",
+        "password": "sellpass10",
+        "bank_account": "464748495051"
+      }
+    ],
+    "admin": {
+      "username": "admin",
+      "password": "adminpass"
+    }
+  }
+  
