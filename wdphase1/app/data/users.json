@@ -84,61 +84,61 @@
     "sellers": [
       {
         "company_name": "ElectroMart",
-        "username": "electromart",
+        "username": "besttech",
         "password": "sellpass1",
         "bank_account": "111122223333"
       },
       {
         "company_name": "FashionHub",
-        "username": "fashionhub",
+        "username": "fashionqueen",
         "password": "sellpass2",
         "bank_account": "444455556666"
       },
       {
         "company_name": "HomeGoods",
-        "username": "homegoods",
+        "username": "audiophile",
         "password": "sellpass3",
         "bank_account": "777788889999"
       },
       {
         "company_name": "ToyLand",
-        "username": "toyland",
+        "username": "bagstore",
         "password": "sellpass4",
         "bank_account": "101112131415"
       },
       {
         "company_name": "BookBarn",
-        "username": "bookbarn",
+        "username": "fitnessexpert",
         "password": "sellpass5",
         "bank_account": "161718192021"
       },
       {
         "company_name": "TechWorld",
-        "username": "techworld",
+        "username": "homeappliances",
         "password": "sellpass6",
         "bank_account": "222324252627"
       },
       {
         "company_name": "SportsZone",
-        "username": "sportszone",
+        "username": "electronicsmart",
         "password": "sellpass7",
         "bank_account": "282930313233"
       },
       {
         "company_name": "FoodCorner",
-        "username": "foodcorner",
+        "username": "sportsgear",
         "password": "sellpass8",
         "bank_account": "343536373839"
       },
       {
         "company_name": "PetParadise",
-        "username": "petparadise",
+        "username": "audiophile",
         "password": "sellpass9",
         "bank_account": "404142434445"
       },
       {
         "company_name": "GardenGrove",
-        "username": "gardengrove",
+        "username": "gamersparadise",
         "password": "sellpass10",
         "bank_account": "464748495051"
       }
