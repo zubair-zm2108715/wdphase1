@@ -6,6 +6,50 @@
     <title>Page for viewing purchase history</title>
 </head>
 <body>
-    
+    <div id="purchase-history"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="purchase-history"></tbody>
+    </table>
 </body>
 </html>
+
+
+<!-- <script>
+    // Load the data from the JSON file
+    fetch('/path/to/your/data.json')
+        .then(response => response.json())
+        .then(data => {
+            const purchaseHistoryElement = document.getElementById('purchase-history');
+
+            // Iterate over each customer in the data
+            data.customers.forEach(customer => {
+                // Create a new element to display the customer's purchase history
+                const customerElement = document.createElement('div');
+                customerElement.innerHTML = `<h2>${customer.name}</h2>`;
+
+                // Iterate over each purchased item for the customer
+                customer.purchases.forEach(purchase => {
+                    // Create a new element to display the purchased item
+                    const purchaseElement = document.createElement('p');
+                    purchaseElement.textContent = `Item: ${purchase.item}, Price: ${purchase.price}`;
+
+                    // Append the purchase element to the customer element
+                    customerElement.appendChild(purchaseElement);
+                });
+
+                // Append the customer element to the purchase history element
+                purchaseHistoryElement.appendChild(customerElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading purchase history:', error);
+        });
+</script> -->
