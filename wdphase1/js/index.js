@@ -1,45 +1,43 @@
 
 
 
-var users = { "username": "user1", "password": "pass1" }; // Your JSON object
 
-    function validateForm() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+let users = { "username": "user1", "password": "pass1" }; // Your JSON object
 
-        if (users.username == username && users.password == password) {
-            return true;
-        } else {
-            alert('Invalid username or password');
-            return false;
-        }
+function validateForm() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+
+    if (users.username == username && users.password == password) {
+        return true;
+    } else {
+        alert('Invalid username or password');
+        return false;
     }
+}
 
+function viewSales() {
+    // Add code here to handle viewing sales for the item
+}
 
+document.getElementById("itemForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
 
+    // Get form values
+    let itemName = document.getElementById("itemName").value;
+    let price = document.getElementById("price").value;
+    let quantity = document.getElementById("quantity").value;
+    let picture = document.getElementById("picture").value;
+    let details = document.getElementById("details").value;
 
-    function viewSales() {
-        // Add code here to handle viewing sales for the item
-    }
-
-    document.getElementById("itemForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get form values
-        var itemName = document.getElementById("itemName").value;
-        var price = document.getElementById("price").value;
-        var quantity = document.getElementById("quantity").value;
-        var picture = document.getElementById("picture").value;
-        var details = document.getElementById("details").value;
-
-        // Check if item already exists
-        var existingItem = localStorage.getItem(itemName);
-        if (existingItem) {
-            // Item already exists, update quantity
-            var item = JSON.parse(existingItem);
-            item.quantity += parseInt(quantity);
-            localStorage.setItem(itemName, JSON.stringify(item));
-        } else {
+    // Check if item already exists
+    let existingItem = localStorage.getItem(itemName);
+    if (existingItem) {
+        // Item already exists, update quantity
+        let item = JSON.parse(existingItem);
+        item.quantity += parseInt(quantity);
+        localStorage.setItem(itemName, JSON.stringify(item));
+    } else {
             // Item does not exist, create new item
             var newItem = {
                 itemName: itemName,
