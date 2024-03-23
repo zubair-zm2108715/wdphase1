@@ -1,201 +1,29 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <header>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-        <div class="user-actions">
-            <button>Sign In</button>
-            <button>Cart</button>
-        </div>
-    </header>
-    <section class="popular-products"> --> <!-- this can be flex or grid in css to match the divs with our figma file 
-        <h2>Popular Products</h2> 
-        <div class="product">
-            <a href="product1.html">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </a>
-        </div>
-        <div class="product">
-            <a href="product2.html">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </a>
-        </div>
-        <div class="product">
-            <a href="product3.html">
-                <img src="product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </a>
-        </div>
-    </section>
-    <section class="product-list"></section> --> <!-- make this a grid in css to match the divs with our figma file -->
-    <!--
-    <div class="product">
-            <a href="product1.html">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>$19.99</p>
-            </a>
-        </div>
-        <div class="product">
-            <a href="product2.html">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>$24.99</p>
-            </a>
-        </div>
-        <div class="product">
-            <a href="product3.html">
-                <img src="product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>$14.99</p>
-            </a>
-        </div>
-    </section>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
+<body> 
     <header>
-            Electon <img src="lol.png">
-        <input type="text" placeholder="Search Electon">
-        <button>Search</button>
-        <img src="user.svg">
-        sign in
-        <img src="shopping-cart.svg">
-        cart
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search items...">
+            <button onclick="searchItems()">Search</button>
+        </div>
+        <div class="user-actions">
+            <div class="user-actions">
+                <button onclick="showPurchaseHistory()">Purchase History</button>
+            </div>
+        </div>
     </header>
     <nav>
-        <p>Browse Categories <img src="arrow-down.png"></p> 
-        <ul>
-            <li>
-                Home
-            </li>
-            <li>
-                Catalog <img src="arrow-down.png">
-            </li>
-            <li>
-                BlogPages <img src="arrow-down.png">
-            </li>
-            <li>
-                About us <img src="arrow-down.png">
-            </li>
-        </ul>
     </nav>
-    <main>
-        <div class="container">
-           
-            <div class="popularproducts">
-                <h2>Popular Products</h2>
-                <div class="product">
-                <img src="https://s3-alpha-sig.figma.com/img/19f8/efb6/b687c0c55e606ba75d77672a5e6f1843?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PkCkHzZ-C~QtaUSfu33OgzXjBcTOOjwrDZ7e6Y2VeqbbZL19wmD8gOd7wFTdSoe8xHCF8Z7lzQL3AHzDUenHH3GeVMyqZkjitSAQC1Kjki2Gp62oKCa8FZfxLAG-GRiZRrzH6Tw4lK0lnSVaMoAy1cCtjpomTLaoZjg299trf6FKiy4AhaPHPPrnhgyqOCC4tVMSeUSoQxQO7InawPoAQJfLFAIckUeF7w1wkGsc1AWmhIxwAOkT5JY9UTPypkIDxWRn4IrDN5mu3jP3qeNh9HUkHCPnUDRaYhzneBPwllLUPRN4Z5rR2lO1Rvb-ufmTDCiIItWFTFyMopdMPVL6OQ__">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="product">
-                <img src="https://s3-alpha-sig.figma.com/img/4d11/c06a/3b45a80aa15dd6606ef1562a06207fcc?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NfHvI16JiRcYc1LXqC9YlMOno4YF6qN1fmWQUa~CwIASCJX5jRR1Ym6mpcRvZDLJwFIeAAJbtgi8Izb~Js4ILiD1jvaEsXf-U6AvCB1ZgKMGqo6J2gq89A2VSPadTSyXv~z1oid1V-E28k6XQ46~SZvvOXIxCAPfheQ6YXCesG2AN0vryjQzPG5AWWRIVwfmCheyUFssJKWxwKtuyL-60gvI9qATwvoR~w2ztNdD4Ttz-dreVXwhtwQB4FZ28BS4lbnzTl3nQ7dq1k60GOqi8dOBnQfYAztMKrgSfchqbJ5qukCWI27DF7~BPWf0gdCL1rtmivpg~ucKr6hd5NOOig__">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="product">
-                <img src="https://s3-alpha-sig.figma.com/img/d454/85f9/ad08d24aa8d1bc5701815f5b81ced335?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=c7Lb2KxTpy-lf4FIKQKI7uDORp7yLY9GkSDqIcDpmnMq3D9X1UyFKsDfNmUWwBdN-TtgbiZ9dM4VwQij8dQkZL-qNQvhgII3CCeG9bvRcgNUZV1sac-RiGym27beoEbg9XlFPFTjdwFGv66LhHAwpfFYJlgx2G1CzHro-VPlOu2ZaBmU-qQXTrzcrozIx8HaA7gkvrrA0WO1K-tpeop9x7aUrfP2MqMvjCAGuAKakTjg3~h73jTdGzkXcKFOzElMQutyd8XQ2u3mpSQ9j81WtFtyBtQYsPOot0lS6KDTQXbop7YfXENeqj-rTcu6hRaLPVUm-1~mLeuHZfZaBjXksg__">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            <div class="product">
-                <img src="https://s3-alpha-sig.figma.com/img/737f/ab14/deba33544aa6bd068190f87ad999d05b?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EXLeFwkZKjbcNPPSyXEs1QYT-ZG8l1QGU3fM7uU7ugYZn-yyvhyduMC0rccanPavCSw8W~rL9eNmCMndc0rh-dya2vtUTnwVc-BZFFlhsT-FfdET3639cSMmMa7~DY5HsghGv6grfgCjhgXEylTgHDDbzAlm~hReg-v9x82D0FTVHpp1fHNLuNBpHCI2Pa-Dk4z1T-TNqhEQEgUVsaCyMPgFS7UvC08xdLUrCUfSaNcPUJ0~ExOhJ8AUOnyNo~T5Nrx8mCXCuwDqm3r-SXBu2KLgccinNjTSd~V2mUXDN3sCdx3lhbTYOwnFcb6rUR9hnyP30LCLvtyHbywZwVbs9g__">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </div>
-            </div>
-            <div class="categories">
-                <img src="insert arrow image">
-                <div class="category">
-                    <img src="https://s3-alpha-sig.figma.com/img/1561/9e17/191b681edb99dfa21a49ce761845d42f?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=X5j4utqNTwRN95iOVxkqIukoDPNgD55WlL3ASAOqeGm-TYVGQFY8tO-ovxHWE89YYme~RThXKY6waMGGj5UtshdK4cl5iYLv2LBw9uWcC4FQhLXsRMyqzXqQCh1eLqrH53aXUlxxmtAf7ms7LfR~gmI6RXze0XFxq7DwCrVJM9uSD4c3fpSYgCDRKNKbGTRrsfkzPh9GtkoIJZMKyiQkx4ch~Fs2lXsKK2QZb8Qy~0TRjuJJzPNi~NpYB8redaN~2D6qqxe6-GGfXVvK-F0du-M02LR08tre8FgsPCX2BEWn1aldyq09BccDmdgPwx88D5-w9q6kz32~JZAU30kE2w__">
-                </div>
-                <div class="category">
-                    <img src="https://www.figma.com/file/FZnw92YOAabqqjpOnv6sUX/image/e3a596db61b8998441fcd29c0376cd30ecb9d2a8">
-                </div>
-                <div class="category">
-                    <img src="https://s3-alpha-sig.figma.com/img/21b0/fb29/3bce50594d1438d9a152038e14ee29b4?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bggHI7DVEuWMbYf2mzDIp-QXRUxp13CMNQr4x6TfmAv2eFPdTLXy1H6g1a4KnrXQH0M2SxKXymL9mZvWT8JVfdRxGiUEBJKgI4~yYwFY3A2S-oM~HzUfq9ME-gSaQHAUgUlodzTTrxikRzqBQs8l8KnQQmkL1EHCWHdeT0qqYpvyLyciV3f11vu2WUxrCvBvN4OhOTnH176uAj8b35eEybr-lI1XyhqikTv70jW0vEA8SqxooUnouE1r7FAGIi3qLAHaNa5Uc0nq8Tlk3aGM0E4rEgQ41n7~rSn7Hqu7XFKgfcabMl25wmlP76Qlwn4JXtAyEMKtfzOj6b61TZQeXg__">
-                </div>
-                <img src="insert arrow image">
-            </div>
-            <div class="recommended product">
-                <div class="product">
-                    <img src="https://www.figma.com/file/FZnw92YOAabqqjpOnv6sUX/image/8981f4d74bd48fa7927f403c347fdcfee1933f90">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </div>
-                <div class="product">
-                    <img src="https://www.figma.com/file/FZnw92YOAabqqjpOnv6sUX/image/8981f4d74bd48fa7927f403c347fdcfee1933f90">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </div>
-                <div class="product">
-                    <img src="https://www.figma.com/file/FZnw92YOAabqqjpOnv6sUX/image/e3a596db61b8998441fcd29c0376cd30ecb9d2a8">
-                    product 
-                    
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                   
-                    
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </div>
-            </div>
-
-        </div>
-    </main>
+    <div id="filteredItems"></div>
+    <div class="popular-product" id="popular-product"></div>
+    <script src="./js/index.js"></script>
 </body>
 </html>
+

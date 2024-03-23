@@ -3,7 +3,7 @@
       {
         "id": 1,
         "name": "Men's Watch",
-        "price": 200,
+        "price": 20000,
         "quantity": 15,
         "seller_username": "besttech",
         "image_url": "https://example.com/watch.jpg",
@@ -12,8 +12,8 @@
       {
         "id": 2,
         "name": "Women's Dress",
-        "price": 150,
-        "quantity": 20,
+        "price": 15,
+        "quantity": 2000,
         "seller_username": "fashionqueen",
         "image_url": "https://example.com/dress.jpg",
         "details": "Elegant dress for women."
@@ -89,6 +89,15 @@
         "seller_username": "gamersparadise",
         "image_url": "https://example.com/gamingmouse.jpg",
         "details": "High-performance gaming mouse."
+      }
+      ,{
+        "id": 11,
+        "name": "loop",
+        "price": 200,
+        "quantity": 15,
+        "seller_username": "besttech",
+        "image_url": "https://example.com/watch.jpg",
+        "details": "Stylish watch for men."
       }
     ]
   }

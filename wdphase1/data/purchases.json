@@ -1,0 +1,25 @@
+{
+    "purchases": [
+      {
+        "username": "user1",
+        "product_id": "product1",
+        "quantity": 2,
+        "totalCost": 20,
+        "address": "1234 Main St"
+      },
+        {
+            "username": "user2",
+            "product_id": "product2",
+            "quantity": 1,
+            "totalCost": 10,
+            "address": "5678 Elm St"
+        },
+        {
+            "username": "user3",
+            "product_id": "product3",
+            "quantity": 3,
+            "totalCost": 30,
+            "address": "91011 Oak St"
+        }
+    ]
+  }

@@ -1,0 +1,3 @@
+Needed to fix
+
+1. The home page doesn't load at first with all the products, reloading it fixes it

@@ -28,3 +28,27 @@ align-items: center;
     justify-content: center;
     align-items: center;
 }
+
+.popular-product {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.popular-product img {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    object-fit: cover; /* This ensures the image fills the space without stretching */
+    border-radius: 50%; /* This makes the image a circle */
+}
+
+.popular-product .name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.popular-product .price {
+    color: #666; /* Adjust as needed */
+    margin-top: 5px;
+}
