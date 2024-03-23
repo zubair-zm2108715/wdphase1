@@ -1,3 +1,13 @@
 Needed to fix
 
-1. The home page doesn't load at first with all the products, reloading it fixes it
+1. The home page doesn't load at first with all the products, reloading it fixes it 
+    (can be fixed changing the onclick function in itemsToCard function)
+
+2. Purchase Page doesnt redirect back to home page after purchasing with logged in stage
+
+3. Use Case 5 half done (ui and refining needed)
+
+4. Use Case 6 25% done.
+
+5. More Refinement needed in UI 
+

@@ -1,4 +1,26 @@
 /* 
+
+
+
+// Import each JSON file and load it into localStorage
+
+async function loadJsonIntoLocalStorage(jsonFiles) {
+  for (let file of jsonFiles) {
+    const response = await fetch(file);
+    const data = await response.json();
+    localStorage.setItem(file, JSON.stringify(data));
+  }
+}
+async function loadData() {
+  await loadJsonIntoLocalStorage(jsonFiles);
+}
+
+loadData();
+
+
+
+
+
 function viewSales() {
     // Add code here to handle viewing sales for the item
 }

@@ -5,7 +5,7 @@
       "name": "Men's Watch",
       "price": 20000,
       "quantity": 15,
-      "seller_username": "besttech",
+      "seller": "besttech",
       "image_url": "https://example.com/watch.jpg",
       "details": "Stylish watch for men."
     },
@@ -14,7 +14,7 @@
       "name": "Women's Dress",
       "price": 15,
       "quantity": 2000,
-      "seller_username": "fashionqueen",
+      "seller": "fashionqueen",
       "image_url": "https://example.com/dress.jpg",
       "details": "Elegant dress for women."
     },
@@ -23,7 +23,7 @@
       "name": "Bluetooth Speaker",
       "price": 100,
       "quantity": 25,
-      "seller_username": "audiophile",
+      "seller": "audiophile",
       "image_url": "https://example.com/speaker.jpg",
       "details": "Portable Bluetooth speaker."
     },
@@ -32,7 +32,7 @@
       "name": "Laptop Backpack",
       "price": 50,
       "quantity": 30,
-      "seller_username": "bagstore",
+      "seller": "bagstore",
       "image_url": "https://example.com/backpack.jpg",
       "details": "Durable laptop backpack."
     },
@@ -41,7 +41,7 @@
       "name": "Fitness Tracker",
       "price": 80,
       "quantity": 10,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/fitnesstracker.jpg",
       "details": "Track your fitness goals."
     },
@@ -50,7 +50,7 @@
       "name": "Coffee Maker",
       "price": 120,
       "quantity": 5,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/coffeemaker.jpg",
       "details": "Brew delicious coffee at home."
     },
@@ -59,7 +59,7 @@
       "name": "Smart TV",
       "price": 600,
       "quantity": 8,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/smarttv.jpg",
       "details": "High-definition smart TV."
     },
@@ -68,7 +68,7 @@
       "name": "Running Shoes",
       "price": 120,
       "quantity": 12,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/runningshoes.jpg",
       "details": "Comfortable running shoes."
     },
@@ -77,7 +77,7 @@
       "name": "Wireless Earbuds",
       "price": 80,
       "quantity": 20,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/earbuds.jpg",
       "details": "True wireless earbuds."
     },
@@ -86,7 +86,7 @@
       "name": "Gaming Mouse",
       "price": 70,
       "quantity": 15,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/gamingmouse.jpg",
       "details": "High-performance gaming mouse."
     },
@@ -95,7 +95,7 @@
       "name": "loop",
       "price": 200,
       "quantity": 15,
-      "seller_username": "k",
+      "seller": "k",
       "image_url": "https://example.com/watch.jpg",
       "details": "Stylish watch for men."
     }
