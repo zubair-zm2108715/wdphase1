@@ -1,0 +1,30 @@
+.login {
+    background-color: white;
+    display: flex;
+width: 1440px;
+padding: 223px 0px 179.76px 0px;
+justify-content: center;
+align-items: center;
+}
+
+.login-heading{
+    width: 421px;
+    height: 47px;
+    flex-shrink: 0;
+    color: #11175D;
+    font-family: Nunito;
+    font-size: 34.401px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.login-form {
+    width: 421px;
+    height: 400px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
