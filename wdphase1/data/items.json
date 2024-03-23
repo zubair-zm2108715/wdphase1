@@ -1,104 +1,103 @@
 {
-    "items": [
-      {
-        "id": 1,
-        "name": "Men's Watch",
-        "price": 20000,
-        "quantity": 15,
-        "seller_username": "besttech",
-        "image_url": "https://example.com/watch.jpg",
-        "details": "Stylish watch for men."
-      },
-      {
-        "id": 2,
-        "name": "Women's Dress",
-        "price": 15,
-        "quantity": 2000,
-        "seller_username": "fashionqueen",
-        "image_url": "https://example.com/dress.jpg",
-        "details": "Elegant dress for women."
-      },
-      {
-        "id": 3,
-        "name": "Bluetooth Speaker",
-        "price": 100,
-        "quantity": 25,
-        "seller_username": "audiophile",
-        "image_url": "https://example.com/speaker.jpg",
-        "details": "Portable Bluetooth speaker."
-      },
-      {
-        "id": 4,
-        "name": "Laptop Backpack",
-        "price": 50,
-        "quantity": 30,
-        "seller_username": "bagstore",
-        "image_url": "https://example.com/backpack.jpg",
-        "details": "Durable laptop backpack."
-      },
-      {
-        "id": 5,
-        "name": "Fitness Tracker",
-        "price": 80,
-        "quantity": 10,
-        "seller_username": "fitnessexpert",
-        "image_url": "https://example.com/fitnesstracker.jpg",
-        "details": "Track your fitness goals."
-      },
-      {
-        "id": 6,
-        "name": "Coffee Maker",
-        "price": 120,
-        "quantity": 5,
-        "seller_username": "homeappliances",
-        "image_url": "https://example.com/coffeemaker.jpg",
-        "details": "Brew delicious coffee at home."
-      },
-      {
-        "id": 7,
-        "name": "Smart TV",
-        "price": 600,
-        "quantity": 8,
-        "seller_username": "electronicsmart",
-        "image_url": "https://example.com/smarttv.jpg",
-        "details": "High-definition smart TV."
-      },
-      {
-        "id": 8,
-        "name": "Running Shoes",
-        "price": 120,
-        "quantity": 12,
-        "seller_username": "sportsgear",
-        "image_url": "https://example.com/runningshoes.jpg",
-        "details": "Comfortable running shoes."
-      },
-      {
-        "id": 9,
-        "name": "Wireless Earbuds",
-        "price": 80,
-        "quantity": 20,
-        "seller_username": "audiophile",
-        "image_url": "https://example.com/earbuds.jpg",
-        "details": "True wireless earbuds."
-      },
-      {
-        "id": 10,
-        "name": "Gaming Mouse",
-        "price": 70,
-        "quantity": 15,
-        "seller_username": "gamersparadise",
-        "image_url": "https://example.com/gamingmouse.jpg",
-        "details": "High-performance gaming mouse."
-      }
-      ,{
-        "id": 11,
-        "name": "loop",
-        "price": 200,
-        "quantity": 15,
-        "seller_username": "besttech",
-        "image_url": "https://example.com/watch.jpg",
-        "details": "Stylish watch for men."
-      }
-    ]
-  }
-  
+  "items": [
+    {
+      "id": 1,
+      "name": "Men's Watch",
+      "price": 20000,
+      "quantity": 15,
+      "seller_username": "besttech",
+      "image_url": "https://example.com/watch.jpg",
+      "details": "Stylish watch for men."
+    },
+    {
+      "id": 2,
+      "name": "Women's Dress",
+      "price": 15,
+      "quantity": 2000,
+      "seller_username": "fashionqueen",
+      "image_url": "https://example.com/dress.jpg",
+      "details": "Elegant dress for women."
+    },
+    {
+      "id": 3,
+      "name": "Bluetooth Speaker",
+      "price": 100,
+      "quantity": 25,
+      "seller_username": "audiophile",
+      "image_url": "https://example.com/speaker.jpg",
+      "details": "Portable Bluetooth speaker."
+    },
+    {
+      "id": 4,
+      "name": "Laptop Backpack",
+      "price": 50,
+      "quantity": 30,
+      "seller_username": "bagstore",
+      "image_url": "https://example.com/backpack.jpg",
+      "details": "Durable laptop backpack."
+    },
+    {
+      "id": 5,
+      "name": "Fitness Tracker",
+      "price": 80,
+      "quantity": 10,
+      "seller_username": "k",
+      "image_url": "https://example.com/fitnesstracker.jpg",
+      "details": "Track your fitness goals."
+    },
+    {
+      "id": 6,
+      "name": "Coffee Maker",
+      "price": 120,
+      "quantity": 5,
+      "seller_username": "k",
+      "image_url": "https://example.com/coffeemaker.jpg",
+      "details": "Brew delicious coffee at home."
+    },
+    {
+      "id": 7,
+      "name": "Smart TV",
+      "price": 600,
+      "quantity": 8,
+      "seller_username": "k",
+      "image_url": "https://example.com/smarttv.jpg",
+      "details": "High-definition smart TV."
+    },
+    {
+      "id": 8,
+      "name": "Running Shoes",
+      "price": 120,
+      "quantity": 12,
+      "seller_username": "k",
+      "image_url": "https://example.com/runningshoes.jpg",
+      "details": "Comfortable running shoes."
+    },
+    {
+      "id": 9,
+      "name": "Wireless Earbuds",
+      "price": 80,
+      "quantity": 20,
+      "seller_username": "k",
+      "image_url": "https://example.com/earbuds.jpg",
+      "details": "True wireless earbuds."
+    },
+    {
+      "id": 10,
+      "name": "Gaming Mouse",
+      "price": 70,
+      "quantity": 15,
+      "seller_username": "k",
+      "image_url": "https://example.com/gamingmouse.jpg",
+      "details": "High-performance gaming mouse."
+    },
+    {
+      "id": 11,
+      "name": "loop",
+      "price": 200,
+      "quantity": 15,
+      "seller_username": "k",
+      "image_url": "https://example.com/watch.jpg",
+      "details": "Stylish watch for men."
+    }
+  ]
+}
