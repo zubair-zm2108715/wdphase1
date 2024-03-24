@@ -3,6 +3,7 @@ users = JSON.parse(localStorage.getItem('users'))
 function validateForm() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
+    let login = document.getElementById('login')
   
     if (username === '' || password === '') {
       console.log('Username and password must be filled out');
@@ -12,13 +13,25 @@ function validateForm() {
     let validUser = users.customers.find(
       (customer) => customer.username === username && customer.password === password
     );
+    let validSeller = users.sellers.find(
+      (seller) => seller.username === username && seller.password === password
+    );
     
     if (validUser) {
       console.log('Customer logged in');
       validUser.isLogged = true;
       localStorage.setItem('users', JSON.stringify(users));
-    }  else {
+      login.action='index.html';
+    } 
+    else if (validSeller) {
+      console.log('Seller logged in');
+      validSeller.isLogged = true;
+      localStorage.setItem('users', JSON.stringify(users));
+      login.action='seller.html';
+    } 
+    else {
       console.log('Invalid username or password');
+      alert('Invalid username or password');
       return false;
     }
   }

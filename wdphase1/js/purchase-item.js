@@ -11,12 +11,23 @@ function purchaseItem() {
     let purchaseAddress = document.getElementById('p_address').value;
     let product = items.items.find((item) => item.id == id);
     let totalCost = product.price * purchaseQuantity;
+    // check if quantity is available
+    if (product.quantity < purchaseQuantity) {
+      alert('Insufficient quantity');
+      return location.href = `index.html?username=${username}`;
+    }
     product.quantity -= purchaseQuantity;
+    
     let customer = users.customers.find(
       (customer) => customer.username === username
     );
+
+    if (customer.money_balance < totalCost) {
+      alert('Insufficient funds');
+      return location.href = `index.html?username=${username}`;
+    }
     customer.money_balance -= totalCost;
-  
+      
     localStorage.setItem('users', JSON.stringify(users));
     localStorage.setItem('items', JSON.stringify(items));
     let purchases = {purchases: []};

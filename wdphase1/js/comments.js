@@ -63,3 +63,39 @@ document.getElementById("itemForm").addEventListener("submit", function(event) {
 
         alert("Item uploaded successfully!");
     }); */
+
+
+
+
+
+    /* function updateItemForm(itemIndex) {
+  let updateItemDiv = document.createElement('div');
+  updateItemDiv.innerHTML = `
+        <h3>${itemIndex.name}</h3>
+        <p>${itemIndex.price}</p>
+        <p>${itemIndex.description}</p>
+        <input type="number" id="quantity" placeholder="${itemIndex.quantity}">
+        <button onclick="saveItem('${itemIndex.id}')">Save</button>
+    `;
+  itemsList.appendChild(updateItemDiv);
+}
+
+ */
+  /* let updateItemDiv = document.createElement('div');
+  updateItemDiv.innerHTML = `
+        <h3>${itemIndex.name}</h3>
+        <p>${itemIndex.price}</p>
+        <p>${itemIndex.description}</p>
+        <input type="number" id="quantity" placeholder="${itemIndex.quantity}">
+        <button onclick="saveItem('${itemIndex.id}')">Save</button>
+    `;
+  sellerItemsDiv.appendChild(updateItemDiv); 
+  
+  // close the div after updating
+  /* let closeButton = document.createElement('button');
+  closeButton.innerText = 'Close';
+  closeButton.onclick = function () {
+    sellerItemsDiv.removeChild(updateItemDiv);
+  };
+  updateItemDiv.appendChild(closeButton); */ 
+

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page for sellers to upload items</title>
+    <script src="./js/upload.js"></script>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,7 @@
     <body>
         <div id="uploadForm">
             <h1>Upload Items</h1>
-            <form id="itemForm">
+            <form id="itemForm" onsubmit="uploadItem()">
                 <label for="itemName">Item Name:</label>
                 <input type="text" id="itemName" name="itemName" required /><br /><br />
 
@@ -31,11 +32,11 @@
 
                 <label for="picture">Picture:</label>
                 <input
-                    type="file"
+                    type="text"
                     id="picture"
                     name="picture"
-                    accept="image/*"
-                    required
+                    
+                    required 
                 /><br /><br />
 
                 <label for="details">Details:</label><br />
@@ -50,12 +51,10 @@
 
                 <input type="submit" value="Upload" />
             </form>
+            <button onclick="backToHome()">Back to home</button>
         </div>
 
-        <button onclick="viewSales()">View Sales</button>
+        
 
-        <script>
-           
-        </script>
     </body>
 </html>
