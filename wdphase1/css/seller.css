@@ -4,13 +4,13 @@
     box-sizing: border-box;
     font-family: Nunito;
 }
-
 header {
     background-color: #003F62;
     display: flex;
     justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
+    /* border: 0.5rem; */
+    margin: 0.3rem;
 }
 
 .container {

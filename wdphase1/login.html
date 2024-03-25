@@ -1,28 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/login.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Login Page</title>
     <script src="./js/login.js"></script>
-  </head>
-  <body>
+</head>
+<div class="grid-container">
+<body>
     <h2 class="login-heading">Get Started by Registering</h2>
     <p class="login-call">Register for free to enjoy the app</p>
 
-    <form action="" class="login-form" id="login" onsubmit="validateForm()">
-      <label for="username">Username:</label><br />
-      <input type="text" id="username" name="username" required /><br />
-      <label for="password">Password:</label><br />
-      <input type="password" id="password" name="password" required /><br />
-      <input type="submit" value="Sign Up" />
-    </form>
-  </body>
+
+<form action="" class="login-form" id="login" onsubmit="validateForm()"> 
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password" id="password-label">Password:</label><br>
+    <input type="password" id="password" name="password" required><br>
+    <input type="submit" value="Sign Up">
+</form>
+</body>
+</div>
 </html>
+
