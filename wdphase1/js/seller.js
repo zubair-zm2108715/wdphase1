@@ -4,21 +4,16 @@ purchases = JSON.parse(localStorage.getItem('purchases'));
 
 let params = new URLSearchParams(window.location.search);
 let username = params.get('username');
-let sellerItemsDiv = document.querySelector('#items');
+let sellerItemsDiv = document.querySelector('#item-list');
+let sellerItemsSoldDiv = document.querySelector('#sale-history-list');
 let sellerItems = items.items.filter((item) => item.seller === username);
-let itemsList = document.querySelector('#item-list');
+let soldItems = Object.values(purchases.purchases).filter((purchase) => {
+  return purchase.seller === username;
+});
 
-function sellerPage() {
-  //console.log('Seller username:', username);
-  let soldItems = Object.values(purchases.purchases).filter((purchase) => {
-    return purchase.seller === username;
-  });
-  console.log('Currently Selling:', sellerItems);
-  //console.log('Sold items:', soldItems);
-}
 window.addEventListener('DOMContentLoaded', () => {
-  sellerPage();
   showSellerItems();
+  showSellerItemsSold();
 });
 
 function showSellerItems() {
@@ -29,15 +24,35 @@ function showSellerItems() {
 }
 
 function itemsToCard(item) {
-  return `<div class="item-list"></div>
+  return `<div class="card">
             <p hidden>${item.id}</p>
             <h3>${item.name}</h3>
+            <ims src="${item.image}" alt="Product Image">
             <p>${item.price}</p>
-            <p>${item.description}</p>
+            <p hidden>${item.description}</p>
             <p>${item.quantity}</p>
             <button id="update" onclick="updateItem('${item.id}');">Update</button>
             <input type="number" id="quantity" placeholder="${item.quantity}" hidden>
             <button id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
+            </div>
+        `;
+}
+
+function showSellerItemsSold() {
+  sellerItemsSoldDiv.innerHTML = soldItems
+    .map((item) => itemsToCardSold(item))
+    .join('');
+}
+
+function itemsToCardSold(item) {
+  return `<div class="card">
+            <p hidden>${item.id}</p>
+            <h3>${item.productName}</h3>
+            <ims src="${item.image}" alt="Product Image">
+            <p>${item.price}</p>
+            <p>${item.username}</p>
+            <p>${item.quantity}</p>
+            </div>
         `;
 }
 
@@ -47,14 +62,13 @@ document.addEventListener('click', (e) => {
     e.target.nextElementSibling.hidden = false;
     e.target.nextElementSibling.nextElementSibling.hidden = false;
   }
-})
+});
 
 function updateItem(e) {
   console.log('Item id:', e);
   console.log('Items:', items);
-  let itemIndex = items.items.find(item => item.id == e);
+  let itemIndex = items.items.find((item) => item.id == e);
   console.log('Item index:', itemIndex);
-  
 }
 
 function saveItem(id) {
@@ -108,7 +122,7 @@ function uploadItem() {
     image_url: picture,
     description: details,
   };
-  console.log(items)
+  console.log(items);
   items.items.push(item);
   localStorage.setItem('items', JSON.stringify(items));
   window.items = items;

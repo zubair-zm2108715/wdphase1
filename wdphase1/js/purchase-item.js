@@ -30,11 +30,15 @@ function purchaseItem() {
       
     localStorage.setItem('users', JSON.stringify(users));
     localStorage.setItem('items', JSON.stringify(items));
-    let purchases = {purchases: []};
+    purchaseQuantity = parseInt(purchaseQuantity);
+    let purchases = JSON.parse(localStorage.getItem('purchases')) || {purchases: []};
     let purchase = {
       username: username,
       product_id: id,
+      productName: product.name,
       quantity: purchaseQuantity,
+      price: product.price,
+      image: product.image,
       totalCost: totalCost,
       address: purchaseAddress,
       seller: product.seller,
@@ -53,4 +57,6 @@ function purchaseItem() {
     location.href = `index.html?username=${username}`;
   }
 
-  
+  function backToHome() {
+    location.href = 'index.html';
+  }

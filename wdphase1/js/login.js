@@ -1,4 +1,6 @@
-users = JSON.parse(localStorage.getItem('users'))
+window.addEventListener('DOMContentLoaded', () => {
+  users = JSON.parse(localStorage.getItem('users'))
+});
 
 function validateForm() {
     let username = document.getElementById('username').value;

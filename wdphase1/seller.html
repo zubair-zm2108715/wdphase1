@@ -4,28 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page for sellers to view items and sale history</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <div id="items">
         <h2>Items for Sale</h2>
-        <ul id="item-list">
-            <!-- Item list will be populated dynamically using JavaScript -->
-        </ul>
+        <div class="item-list" id="item-list"></div>
     </div>
     <div id="sale-history">
         <h2>Sale History</h2>
-        <table id="sale-table">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Buyer</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody id="sale-list">
-                <!-- Sale list will be populated dynamically using JavaScript -->
-            </tbody>
-        </table>
+        <div class="sale-history-list" id="sale-history-list"></div>
     </div>
     <button onclick="uploadType()">Upload Products</button></a>
     <button onclick="backToHome()">Back To Home</button>

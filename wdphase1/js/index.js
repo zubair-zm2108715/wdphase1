@@ -1,23 +1,30 @@
 usersJSON = './data/users.json';
 itemsJSON = './data/items.json';
 
-const jsonFiles = [usersJSON, itemsJSON];
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadJsonData();
+  users = JSON.parse(localStorage.getItem('users'));
+  items = JSON.parse(localStorage.getItem('items'));
+  loadPopularProduct();
+});
 
-async function loadJsonData(){
-  const usersdata = await fetch(usersJSON);
-  const users = await usersdata.json();
-  localStorage.setItem(usersJSON, JSON.stringify(users));
+async function loadJsonData() {
+  if (localStorage.getItem('users') && localStorage.getItem('items')) {
+    return;
+  }
+  data1 = await fetch(usersJSON);
+  const usersdata = await data1.json();
+  localStorage.setItem('users', JSON.stringify(usersdata));
 
-  const itemsdata = await fetch(itemsJSON);
-  const items = await itemsdata.json();
-  localStorage.setItem(itemsJSON, JSON.stringify(items));
+  data2 = await fetch(itemsJSON);
+  const itemsdata = await data2.json();
+  localStorage.setItem('items', JSON.stringify(itemsdata));
 }
 
 users = JSON.parse(localStorage.getItem('users'));
 items = JSON.parse(localStorage.getItem('items'));
 
 let popularProduct = document.querySelector('#popular-product');
-
 
 function searchItems() {
   let searchQuery = document.getElementById('searchInput').value.toLowerCase();
@@ -57,11 +64,10 @@ function loadPopularProduct() {
     .map((item) => itemsToCard(item))
     .join('');
 }
-loadPopularProduct();
 
 function itemsToCard(item) {
-  return `<div class="popular-product">
-    <p hidden>${item.id}</p> 
+  return `<div class="card">
+    <p>${item.id}</p> 
         <a href='./product.html?id=${item.id}'><img src="${item.image}" alt="Product Image"></a>
         <p>Name: ${item.name}</p>
         <p>Price: ${item.price}</p>
@@ -108,7 +114,3 @@ function purchaseHistoryButton() {
     location.href = `purchase-history.html?username=${username}`;
   }
 }
-
-
-
-

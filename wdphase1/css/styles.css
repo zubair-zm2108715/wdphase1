@@ -1,4 +1,4 @@
-.login {
+/* .login {
     background-color: white;
     display: flex;
 width: 1440px;
@@ -29,26 +29,44 @@ align-items: center;
     align-items: center;
 }
 
-.popular-product {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
+ */
+
+.popular-product, .item-list, .sale-history-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+    row-gap: 5rem;
+    .card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+        
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        height: 99%;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+            flex: 1
+        }
+
+        p {
+            width: 100%;
+            text-align: justify;
+        }
+        .action-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-right: 25px;
+          
+          }
+    }
 }
 
-.popular-product img {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
-    object-fit: cover; /* This ensures the image fills the space without stretching */
-    border-radius: 50%; /* This makes the image a circle */
-}
 
-.popular-product .name {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.popular-product .price {
-    color: #666; /* Adjust as needed */
-    margin-top: 5px;
-}

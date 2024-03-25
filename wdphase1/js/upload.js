@@ -21,7 +21,7 @@ function backToHome() {
       price: price,
       quantity: quantity,
       seller: username,
-      image_url: picture,
+      image: picture,
       description: details,
     };
     console.log(items)
