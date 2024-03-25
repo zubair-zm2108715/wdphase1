@@ -1,5 +1,5 @@
 main {
-    font-family: 'Arial', sans-serif;
+    font-family: Nunito;
     height: 100%;
     width: 95%;
     margin: auto;
@@ -29,7 +29,7 @@ main {
         }
         .Button {
             font-size: 24px;
-            background-color: rgb(239, 104, 32);
+            background-color: #EDA415;
             color: white;
             border: none;
             margin: 0.2rem;

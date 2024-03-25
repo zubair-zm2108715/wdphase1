@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/purchase-history.css">
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <h2 class="shopName">Tradify</h2>
+      <div class="searchBar">
+        <input class="input" type="text" id="searchInput" placeholder="Search items..." />
+        <button class="Button" onclick="searchItems()">Search</button>
+      </div>
+      <button class="Button">Logout</button>
+    </header>
     <!-- TODO: display purchase history -->
-    <h1>Purchase History</h1>
+    <h2>Purchase History</h2>
     <div id="purchase-history"></div>
     <script src="./js/purchase-history.js"></script>
-</body>
+  </body>
 </html>
-

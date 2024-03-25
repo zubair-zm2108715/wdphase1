@@ -1,0 +1,50 @@
+*{
+    font-family:Nunito;
+}
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap:2rem;
+}
+#productDetails{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    padding:1rem;
+}
+button{
+    background-color: orange;
+    border-style:none;
+    padding:0.5rem;
+    color:white;
+    border-radius: 80px;
+}
+input[type="submit"]{
+    background-color: orange;
+    border-style:none;
+    padding:0.5rem;
+    color:white;
+    border-radius: 80px;
+    
+}
+.container{
+    margin-left: auto;
+    
+    
+}
+.container1 {
+    display: flex; 
+    gap:2rem;
+    
+}
+.container3{
+    grid-area:"d";
+    
+}
+input[type="text"]{
+    padding: 0.5em;
+}
+input[type="number"]{
+    padding:0.5rem;
+}
