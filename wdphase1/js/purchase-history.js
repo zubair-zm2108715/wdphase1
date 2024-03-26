@@ -28,4 +28,10 @@ function purchaseToCard(purchase) {
         <p>Seller: ${purchase.seller}</p>
     </div>`;
 }
+// (Abdulrahman) i add here function for the logout button
+function goToLogin() {
+  let params = new URLSearchParams(window.location.search);
+  let username = params.get("username");
+  location.href = `login.html?username=${username}`;
+}
     
