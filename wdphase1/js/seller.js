@@ -1,6 +1,13 @@
-users = JSON.parse(localStorage.getItem('users'));
+window.addEventListener('DOMContentLoaded', async () => {
+  users = JSON.parse(localStorage.getItem('users'));
+  items = JSON.parse(localStorage.getItem('items'));
+  purchases = JSON.parse(localStorage.getItem('purchases'));
+  
+
+
+/* users = JSON.parse(localStorage.getItem('users'));
 items = JSON.parse(localStorage.getItem('items'));
-purchases = JSON.parse(localStorage.getItem('purchases'));
+purchases = JSON.parse(localStorage.getItem('purchases')); */
 
 let params = new URLSearchParams(window.location.search);
 let username = params.get('username');
@@ -11,10 +18,6 @@ let soldItems = Object.values(purchases.purchases).filter((purchase) => {
   return purchase.seller === username;
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  showSellerItems();
-  showSellerItemsSold();
-});
 
 function showSellerItems() {
   console.log('Seller items:', sellerItems);
@@ -22,6 +25,14 @@ function showSellerItems() {
     .map((item) => itemsToCard(item))
     .join('');
 }
+function showSellerItemsSold() {
+  sellerItemsSoldDiv.innerHTML = soldItems
+    .map((item) => itemsToCardSold(item))
+    .join('');
+}
+await showSellerItems();
+  await showSellerItemsSold();
+});
 
 function itemsToCard(item) {
   return `<div class="card">
@@ -38,11 +49,7 @@ function itemsToCard(item) {
         `;
 }
 
-function showSellerItemsSold() {
-  sellerItemsSoldDiv.innerHTML = soldItems
-    .map((item) => itemsToCardSold(item))
-    .join('');
-}
+
 
 function itemsToCardSold(item) {
   return `<div class="card">

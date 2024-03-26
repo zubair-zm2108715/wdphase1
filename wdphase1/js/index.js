@@ -67,12 +67,13 @@ function loadPopularProduct() {
 
 function itemsToCard(item) {
   return `<div class="card">
-    <p>${item.id}</p> 
+    <p hidden>${item.id}</p> 
         <a href='./product.html?id=${item.id}'><img src="${item.image}" alt="Product Image"></a>
         <p>Name: ${item.name}</p>
         <p>Price: ${item.price}</p>
         <button id="purchaseButton" class="purchase-button" onclick="toProductPage(${item.id});">Purchase</button>
         </div>`;
+        
 }
 
 function toProductPage(id) {
