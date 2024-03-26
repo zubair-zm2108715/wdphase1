@@ -83,10 +83,9 @@ function saveItem(id) {
   console.log('Quantity:', quantity);
   console.log('Item id:', id);
   let item = items.items.find((item) => item.id == id);
-  item.quantity = quantity;
+  item.quantity = parseInt(quantity);
   localStorage.setItem('items', JSON.stringify(items));
   window.items = items;
-  showSellerItems();
 }
 
 function uploadType() {
