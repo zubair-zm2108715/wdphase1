@@ -30,8 +30,6 @@ function purchaseToCard(purchase) {
 }
 // (Abdulrahman) i add here function for the logout button
 function goToLogin() {
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get("username");
-  location.href = `login.html?username=${username}`;
+  location.href = `login.html`;
 }
     

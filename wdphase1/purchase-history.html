@@ -3,22 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/purchase-history.css">
+    <link rel="stylesheet" href="/css/purchase-history.css" />
     <title>Document</title>
+    <script src="./js/purchase-history.js"></script>
   </head>
   <body>
-    <header>
-        <img src="https://s3-alpha-sig.figma.com/img/8c8b/e0ca/b0ffb5cea7c5c4fb538e63033c56ac90?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OCg5GHE9~VDD-fyYyAMiffclRhnY-tT7OpESJaO3bZTFyhxb7WcnhJoQ3K5ECEeY-SdEFSOtVgx1~yNJWnWJcK0gzjj5Z2EjiD13gMMcBuF0wrTVtc03atgZ1~l1LZlbWR1-w8ekUtqNUsrEcKYlZO-H59AookP9vq2Rv1atA4us~ZE88oRAzsyiESwFKCwjlVThpPfTZFvJjpzH1EIEAmf-q~GlSROkGSUR5NtPYIMFk9XOBdigeefIwh8BEEQ42ZVFlo2Y96wWQJIbH9477RLqqLHY23yprq3SqrbbDeUIrDIOJMaDOOwSY47HH42c2A2DOM5As1jmXG7LpyzSdw__">
-
-      <div class="searchBar">
-        <input class="input" type="text" id="searchInput" placeholder="Search items..." />
-        <button class="Button" onclick="searchItems()">Search</button>
-      </div>
-      <button class="Button" onclick="goToLogin()">Logout</button>
-    </header>
-    <!-- TODO: display purchase history -->
-    <h2>Purchase History</h2>
-    <div id="purchase-history"></div>
-    <script src="./js/purchase-history.js"></script>
+    <div class="container">
+      <header>
+        <img
+          src="https://png.pngtree.com/png-clipart/20220706/original/pngtree-letter-t-logo-png-png-image_8349762.png"
+          width="50"
+        />
+        <h2>Tradify</h2>
+        <button class="Button" onclick="goToLogin()">Logout</button>
+      </header>
+      <!-- TODO: display purchase history -->
+      <section>
+        <h2>Purchase History</h2>
+        <div id="purchase-history"></div>
+      </section>
+    </div>
   </body>
 </html>

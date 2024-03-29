@@ -1,5 +1,16 @@
-*{
-    font-family:Nunito;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+header {
+    background-color: #003F62;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 1rem;
+    margin: 0.3rem;
 }
 .grid-container {
     display: flex;

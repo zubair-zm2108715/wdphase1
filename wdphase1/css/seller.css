@@ -1,9 +1,10 @@
 * {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Nunito;
 }
+
 header {
     background-color: #003F62;
     display: flex;
@@ -17,8 +18,11 @@ header {
     padding: 0.5rem;
 
 }
-h2{
+
+h2 {
     padding: 0.5rem;
+
+    color: white;
 }
 
 .Button {
@@ -72,12 +76,12 @@ h2{
             text-align: justify;
         }
 
-        .action-btns {
+        /* .action-btns {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-right: 25px;
 
-        }
+        } */
     }
 }
