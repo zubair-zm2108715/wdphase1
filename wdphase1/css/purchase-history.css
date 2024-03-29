@@ -16,6 +16,9 @@ header {
 h2 {
     color: white;
 }
+.Title{
+    color: black;
+}
 /* .container {
     display: grid;
     padding: 0.5rem;

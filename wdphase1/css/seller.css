@@ -18,10 +18,12 @@ header {
     padding: 0.5rem;
 
 }
-
+.Title{
+    padding: 0.5rem;
+    color: black; 
+}
 h2 {
     padding: 0.5rem;
-
     color: white;
 }
 
