@@ -1,3 +1,10 @@
+header {
+    background-color: #003F62;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 0.3rem;
+}
 main {
     font-family: Nunito;
     height: 100%;

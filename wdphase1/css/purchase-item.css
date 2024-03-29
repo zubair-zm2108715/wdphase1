@@ -12,6 +12,19 @@ header {
     padding: 1rem;
     margin: 0.3rem;
 }
+.container1{
+    justify-content: center;
+    display:flex;
+    .img{
+        width:350px;
+        height:350px;
+    }
+    #productDetails{
+        flex-grow:0.5;
+    }
+}
+
+
 .grid-container {
     display: flex;
     flex-direction: column;
@@ -24,6 +37,7 @@ header {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
     padding:1rem;
 }
+
 button{
     background-color: orange;
     border-style:none;
@@ -55,6 +69,7 @@ input[type="submit"]{
 }
 input[type="text"]{
     padding: 0.5em;
+    margin-right:0.5em;
 }
 input[type="number"]{
     padding:0.5rem;
