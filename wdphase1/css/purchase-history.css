@@ -33,7 +33,7 @@ header {
 }
 
 .Title {
-    color:  #003F62;
+    color: #003F62;
     padding: 0.5rem;
 }
 
@@ -55,7 +55,7 @@ header {
 
     .card {
         background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
+        padding: 25px;
         text-align: center;
         margin: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -68,8 +68,8 @@ header {
 
         img {
             width: 100%;
-            width: 200px;
-            height: 200px;
+            height: 100%;
+            margin-bottom: 5px;
             object-fit: cover;
             flex: 1
         }
@@ -82,5 +82,11 @@ header {
         .product-name {
             font-size: large;
         }
+
+        .Description {
+            margin: 5px;
+
+        }
     }
+
 }

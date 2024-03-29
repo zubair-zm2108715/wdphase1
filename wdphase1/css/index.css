@@ -94,12 +94,5 @@ h2 {
             text-align: justify;
         }
 
-        .action-btns {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-right: 25px;
-
-        }
     }
 }

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: Nunito;
 }
+
 header {
     background-color: #003F62;
     display: flex;
@@ -12,15 +13,18 @@ header {
     padding: 1rem;
     margin: 0.3rem;
 }
-.container1{
+
+.container1 {
     justify-content: center;
-    display:flex;
-    .img{
-        width:350px;
-        height:350px;
+    display: flex;
+
+    .img {
+        width: 350px;
+        height: 350px;
     }
-    #productDetails{
-        flex-grow:0.5;
+
+    #productDetails {
+        flex-grow: 0.5;
     }
 }
 
@@ -31,46 +35,62 @@ header {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    gap:2rem;
-}
-#productDetails{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-    padding:1rem;
+    gap: 2rem;
 }
 
-button{
+#productDetails {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+button {
     background-color: orange;
-    border-style:none;
-    padding:0.5rem;
-    color:white;
+    border-style: none;
+    padding: 0.5rem;
+    color: white;
     border-radius: 80px;
 }
-input[type="submit"]{
+
+input[type="submit"] {
     background-color: orange;
-    border-style:none;
-    padding:0.5rem;
-    color:white;
+    border-style: none;
+    padding: 0.5rem;
+    color: white;
     border-radius: 80px;
-    
+
 }
-.container{
+
+.container {
     margin-left: auto;
-    
-    
+
+
 }
+
 .container1 {
-    display: flex; 
-    gap:2rem;
-    
+    display: flex;
+    gap: 2rem;
+
 }
-.container3{
-    grid-area:"d";
-    
+
+.container3 {
+    grid-area: "d";
+
 }
-input[type="text"]{
+
+input[type="text"] {
     padding: 0.5em;
-    margin-right:0.5em;
+    margin-right: 0.5em;
 }
-input[type="number"]{
-    padding:0.5rem;
+
+input[type="number"] {
+    padding: 0.5rem;
+}
+
+img {
+    object-fit: cover;
+    width: 50%;
+    height: 30%;
+    width: 200px;
+    height: 200px;
+    flex: 1
 }
