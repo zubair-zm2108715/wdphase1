@@ -96,6 +96,24 @@ function toProductPage(id) {
     });
 }
 
+function updateLoginButton() {
+  let loginButton = document.getElementById('loginbutton');
+  let params = new URLSearchParams(window.location.search);
+  let username = params.get('username');
+  isCustomerLoggedIn(username)
+    .then(function (isLoggedIn) {
+      if (isLoggedIn == true) {
+        loginButton.innerHTML = 'Logout';
+      }
+      else {
+        loginButton.innerHTML = 'Login';
+      }
+  }
+  );}
+
+// Call the function when the page loads
+window.onload = updateLoginButton;
+
 function purchaseHistoryButton() {
   let params = new URLSearchParams(window.location.search);
   let username = params.get('username');
