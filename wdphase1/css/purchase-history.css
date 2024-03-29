@@ -25,15 +25,15 @@ header {
         cursor: pointer;
         border-radius: 10px;
     }
-}
 
-h2 {
-    color: white;
+    h1 {
+        color: white;
 
+    }
 }
 
 .Title {
-    color: black;
+    color:  #003F62;
     padding: 0.5rem;
 }
 
@@ -43,8 +43,6 @@ h2 {
     border-color: antiquewhite;
     padding: 0.3rem;
 }
-
-
 
 .purchase-history {
     display: grid;

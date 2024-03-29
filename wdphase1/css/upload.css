@@ -1,10 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
 header {
     background-color: #003F62;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
     margin: 0.3rem;
+
+    .Button {
+        font-size: 15px;
+        background-color: #EDA415;
+        color: white;
+        border: none;
+        margin: 0.2rem;
+        padding: 0.5rem;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    h1{
+        color: white;
+    }
 }
+
 main {
     font-family: Nunito;
     height: 100%;
@@ -23,10 +46,12 @@ main {
         display: grid;
         justify-content: center;
         justify-items: center;
+
         label {
             padding: 0.3rem;
             margin: 0.2rem;
         }
+
         .input {
             display: flex;
             border-radius: 5px;
@@ -34,6 +59,7 @@ main {
             border-color: antiquewhite;
             padding: 0.3rem;
         }
+
         .Button {
             font-size: 24px;
             background-color: #EDA415;
@@ -46,6 +72,6 @@ main {
             cursor: pointer;
             border-radius: 10px;
         }
-        
+
     }
 }

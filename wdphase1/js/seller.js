@@ -42,7 +42,7 @@ function itemsToCard(item) {
             <p><b>Quantity: </b>${item.quantity}</p>
             <button class="Button" id="update" onclick="updateItem('${item.id}');">Update</button>
             <input type="number" id="quantity" placeholder="${item.quantity}" hidden>
-            <button id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
+            <button class="saveBtn" id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
             </div>
         `;
 }

@@ -13,9 +13,6 @@ header {
     justify-content:space-around;
     padding: 1rem;
     margin: 0.3rem;
-    .Tilte{
-        color: white;
-    }
 }
 .grid-container {
     display: grid;
