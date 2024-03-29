@@ -3,10 +3,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   items = JSON.parse(localStorage.getItem("items"));
   purchases = JSON.parse(localStorage.getItem("purchases"));
 
-  /* users = JSON.parse(localStorage.getItem('users'));
-items = JSON.parse(localStorage.getItem('items'));
-purchases = JSON.parse(localStorage.getItem('purchases')); */
-
   let params = new URLSearchParams(window.location.search);
   let username = params.get("username");
   let sellerItemsDiv = document.querySelector("#item-list");
@@ -35,7 +31,7 @@ function itemsToCard(item) {
   return `<div class="card" id="card" onclick="showDetail(${item.id})">
             <p hidden>${item.id}</p>
             <h3>${item.name}</h3>
-            <img src="${item.image}" alt="Product Image">
+            <img src="${item.image}" alt="Product Image" id="img">
             <p><b>Price: </b>${item.price}</p>
             <p hidden><b>Description: </b>${item.description}</p>
             <p hidden><b>Category: </b>${item.category}</p>
@@ -61,7 +57,6 @@ function itemsToCardSold(item) {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "update") {
-    //toggle the hidden attribute
     e.target.nextElementSibling.hidden = false;
     e.target.nextElementSibling.nextElementSibling.hidden = false;
   }
@@ -69,9 +64,23 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "card") {
-    //toggle the hidden attribute
-    e.target.nextElementSibling.hidden = false;
-    e.target.nextElementSibling.nextElementSibling.hidden = false;
+    // Select the description and category elements
+    let description = e.target.querySelector('p:nth-child(5)');
+    let category = e.target.querySelector('p:nth-child(6)');
+
+    description.hidden = !description.hidden;
+    category.hidden = !category.hidden;
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.id === "img") {
+    // Select the description and category elements
+    let description = e.target.querySelector('p:nth-child(5)');
+    let category = e.target.querySelector('p:nth-child(6)');
+
+    description.hidden = !description.hidden;
+    category.hidden = !category.hidden;
   }
 });
 
