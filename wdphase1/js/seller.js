@@ -8,9 +8,18 @@ window.addEventListener("DOMContentLoaded", async () => {
   let sellerItemsDiv = document.querySelector("#item-list");
   let sellerItemsSoldDiv = document.querySelector("#sale-history-list");
   let sellerItems = items.items.filter((item) => item.seller === username);
+  if (purchases) {
   let soldItems = Object.values(purchases.purchases).filter((purchase) => {
     return purchase.seller === username;
   });
+  function showSellerItemsSold() {
+    sellerItemsSoldDiv.innerHTML = soldItems
+      .map((item) => itemsToCardSold(item))
+      .join("");
+  }
+  await showSellerItemsSold();
+}
+
 
   function showSellerItems() {
     console.log("Seller items:", sellerItems);
@@ -18,17 +27,13 @@ window.addEventListener("DOMContentLoaded", async () => {
       .map((item) => itemsToCard(item))
       .join("");
   }
-  function showSellerItemsSold() {
-    sellerItemsSoldDiv.innerHTML = soldItems
-      .map((item) => itemsToCardSold(item))
-      .join("");
-  }
+  
   await showSellerItems();
-  await showSellerItemsSold();
+
 });
 
 function itemsToCard(item) {
-  return `<div class="card" id="card" onclick="showDetail(${item.id})">
+  return `<div class="card" id="card">
             <p hidden>${item.id}</p>
             <h3>${item.name}</h3>
             <img src="${item.image}" alt="Product Image" id="img">
@@ -37,7 +42,7 @@ function itemsToCard(item) {
             <p hidden><b>Category: </b>${item.category}</p>
             <p><b>Quantity: </b>${item.quantity}</p>
             <button class="Button" id="update" onclick="updateItem('${item.id}');">Update</button>
-            <input type="number" id="quantity" placeholder="${item.quantity}" hidden>
+            <input type="number" id="quantity-${item.id}" placeholder="${item.quantity}" hidden>
             <button class="saveBtn" id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
             </div>
         `;
@@ -64,7 +69,6 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "card") {
-    // Select the description and category elements
     let description = e.target.querySelector('p:nth-child(5)');
     let category = e.target.querySelector('p:nth-child(6)');
 
@@ -75,7 +79,6 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "img") {
-    // Select the description and category elements
     let description = e.target.querySelector('p:nth-child(5)');
     let category = e.target.querySelector('p:nth-child(6)');
 
@@ -83,7 +86,6 @@ document.addEventListener("click", (e) => {
     category.hidden = !category.hidden;
   }
 });
-
 
 function updateItem(e) {
   console.log("Item id:", e);
@@ -93,14 +95,13 @@ function updateItem(e) {
 }
 
 function saveItem(id) {
-  let quantity = document.querySelector("#quantity").value;
+  let quantity = document.querySelector(`#quantity-${id}`).value;
   console.log("Quantity:", quantity);
   console.log("Item id:", id);
   let item = items.items.find((item) => item.id == id);
   item.quantity = parseInt(quantity);
   localStorage.setItem("items", JSON.stringify(items));
   window.items = items;
-  
 }
 
 function uploadType() {
@@ -124,7 +125,6 @@ function goToUpload() {
 function backToHome() {
   location.href = "index.html";
 }
-// (Abdulrahman) i add here function for the logout button
 function goToLogin() {
   location.href = `login.html`;
 }
