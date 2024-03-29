@@ -1,14 +1,17 @@
 Needed to fix
 
+1. The login button should change to logout after logging in
 
 2. Purchase Page doesnt redirect back to home page after purchasing with logged in stage (optional)
 
+3. validate each form
+
+4. Update ui when the user presses search Button
+
+5. In the seller page, the quantity is not updating instantly
+
+6. In the seller page, the seller should be able to click the item and see its details.
 
 
 
 
-5. More Refinement needed in UI 
-
-6. validate each form
-
-7. Implement a categories page, blog page and nav

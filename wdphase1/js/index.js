@@ -71,6 +71,7 @@ function itemsToCard(item) {
         <a href='./product.html?id=${item.id}'><img src="${item.image}" alt="Product Image"></a>
         <p>Name: ${item.name}</p>
         <p>Price: ${item.price}</p>
+        <p>Description: ${item.description}</p>
         <button id="purchaseButton" class="Button" onclick="toProductPage(${item.id});">Purchase</button>
         </div>`;
 }

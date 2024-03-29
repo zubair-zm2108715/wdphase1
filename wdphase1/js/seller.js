@@ -32,13 +32,14 @@ purchases = JSON.parse(localStorage.getItem('purchases')); */
 });
 
 function itemsToCard(item) {
-  return `<div class="card">
+  return `<div class="card" id="card" onclick="showDetail(${item.id})">
             <p hidden>${item.id}</p>
             <h3>${item.name}</h3>
-            <ims src="${item.image}" alt="Product Image">
-            <p>${item.price}</p>
-            <p hidden>${item.description}</p>
-            <p>${item.quantity}</p>
+            <img src="${item.image}" alt="Product Image">
+            <p><b>Price: </b>${item.price}</p>
+            <p hidden><b>Description: </b>${item.description}</p>
+            <p hidden><b>Category: </b>${item.category}</p>
+            <p><b>Quantity: </b>${item.quantity}</p>
             <button class="Button" id="update" onclick="updateItem('${item.id}');">Update</button>
             <input type="number" id="quantity" placeholder="${item.quantity}" hidden>
             <button id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
@@ -50,10 +51,10 @@ function itemsToCardSold(item) {
   return `<div class="card">
             <p hidden>${item.id}</p>
             <h3>${item.productName}</h3>
-            <ims src="${item.image}" alt="Product Image">
-            <p>${item.price}</p>
-            <p>${item.username}</p>
-            <p>${item.quantity}</p>
+            <img src="${item.image}" alt="Product Image">
+            <p><b>Price: </b>${item.price}</p>
+            <p><b>User: </b>${item.username}</p>
+            <p><b>Quantity: </b>${item.quantity}</p>
             </div>
         `;
 }
@@ -65,6 +66,15 @@ document.addEventListener("click", (e) => {
     e.target.nextElementSibling.nextElementSibling.hidden = false;
   }
 });
+
+document.addEventListener("click", (e) => {
+  if (e.target.id === "card") {
+    //toggle the hidden attribute
+    e.target.nextElementSibling.hidden = false;
+    e.target.nextElementSibling.nextElementSibling.hidden = false;
+  }
+});
+
 
 function updateItem(e) {
   console.log("Item id:", e);
@@ -81,6 +91,7 @@ function saveItem(id) {
   item.quantity = parseInt(quantity);
   localStorage.setItem("items", JSON.stringify(items));
   window.items = items;
+  
 }
 
 function uploadType() {
@@ -106,9 +117,7 @@ function backToHome() {
 }
 // (Abdulrahman) i add here function for the logout button
 function goToLogin() {
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get("username");
-  location.href = `login.html?username=${username}`;
+  location.href = `login.html`;
 }
 
 function uploadItem() {

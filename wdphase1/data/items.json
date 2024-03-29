@@ -7,7 +7,8 @@
       "quantity": 15,
       "seller": "besttech",
       "image": "https://media.wired.com/photos/5b22c5c4b878a15e9ce80d92/master/pass/iphonex-TA.jpg",
-      "description": "Apple Iphone X was released on 2017 as the first apple phone with a notch"
+      "description": "Apple Iphone X was released on 2017 as the first apple phone with a notch",
+      "category": "Electronics"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "quantity": 2000,
       "seller": "fashionqueen",
       "image": "https://i.pinimg.com/564x/eb/d2/95/ebd2953d7d36900a16d7550fcfbae979.jpg",
-      "description": "Elegant dress for women."
+      "description": "Elegant dress for women.",
+      "category": "Fashion"
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "quantity": 25,
       "seller": "audiophile",
       "image": "https://m.media-amazon.com/images/I/71Gqe2ENGiL._AC_UF894,1000_QL80_.jpg",
-      "description": "Portable Bluetooth speaker."
+      "description": "Portable Bluetooth speaker.",
+      "category": "Electronics"
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "quantity": 30,
       "seller": "bagstore",
       "image": "https://img.fruugo.com/product/5/89/417264895_max.jpg",
-      "description": "Durable laptop backpack."
+      "description": "Durable laptop backpack.",
+      "category": "Accessories"
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "quantity": 10,
       "seller": "k",
       "image": "https://img.fruugo.com/product/5/89/417264895_max.jpg",
-      "description": "Track your fitness goals."
+      "description": "Track your fitness goals.",
+      "category": "Electronics"
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "quantity": 5,
       "seller": "k",
       "image": "https://cdnprod.mafretailproxy.com/sys-master-root/h20/h1d/26657912422430/872189_main.jpg_480Wx480H",
-      "description": "Brew delicious coffee at home."
+      "description": "Brew delicious coffee at home.",
+      "category": "Appliances"
     },
     {
       "id": 7,
@@ -61,7 +67,8 @@
       "quantity": 8,
       "seller": "k",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9tURXXOLgf6OGvCFg_ABGAEDoGhKBAoJNo8l8SPVVvMg7PwLRQpDxj32UkCnQpXsN9dY&usqp=CAU",
-      "description": "High-definition smart TV."
+      "description": "High-definition smart TV.",
+      "category": "Electronics"
     },
     {
       "id": 8,
@@ -70,7 +77,8 @@
       "quantity": 12,
       "seller": "k",
       "image": "https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg",
-      "description": "Comfortable running shoes."
+      "description": "Comfortable running shoes.",
+      "category": "Fashion"
     },
     {
       "id": 9,
@@ -79,7 +87,8 @@
       "quantity": 20,
       "seller": "k",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9tURXXOLgf6OGvCFg_ABGAEDoGhKBAoJNo8l8SPVVvMg7PwLRQpDxj32UkCnQpXsN9dY&usqp=CAU",
-      "description": "True wireless earbuds."
+      "description": "True wireless earbuds.",
+      "category": "Electronics"
     },
     {
       "id": 10,
@@ -88,7 +97,8 @@
       "quantity": 15,
       "seller": "k",
       "image": "https://images.monoprice.com/productlargeimages/440281.jpg",
-      "description": "High-performance gaming mouse."
+      "description": "High-performance gaming mouse.",
+      "category": "Electronics"
     },
     {
       "id": 11,
@@ -97,7 +107,8 @@
       "quantity": 15,
       "seller": "k",
       "image": "https://nologystore.com/pub/media/catalog/product/cache/098f3cbf57b4c0c1208cdf34f9f39d12/7/1/71duixf9rtl._ac_ux679__1_2.jpg",
-      "description": "Stylish watch for men."
+      "description": "Stylish watch for men.",
+      "category": "Fashion"
     }
   ]
 }
