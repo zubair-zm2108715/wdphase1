@@ -1,15 +1,25 @@
 users = JSON.parse(localStorage.getItem('users'));
 items = JSON.parse(localStorage.getItem('items'));
+let params = new URLSearchParams(window.location.search);
+let id = params.get('id');
+let product = items.items.find((item) => item.id == id);
+console.log(product)
+document.addEventListener("DOMContentLoaded",function(){
+  productimg=document.querySelector(".img")
+  console.log(productimg.innerHTML);
+  productimg.src=product.image;
+  document.querySelector('.productName').textContent=product.name;
+  document.querySelector('.price').textContent=product.price+"$";
+  document.querySelector('.description').textContent=product.description;
+})
 
 function purchaseItem() {
-    let params = new URLSearchParams(window.location.search);
-  
-    let id = params.get('id');
+    
     let username = params.get('username');
-  
+   
     let purchaseQuantity = document.getElementById('p_quantity').value;
     let purchaseAddress = document.getElementById('p_address').value;
-    let product = items.items.find((item) => item.id == id);
+   
     let totalCost = product.price * purchaseQuantity;
     // check if quantity is available
     if (product.quantity < purchaseQuantity) {
