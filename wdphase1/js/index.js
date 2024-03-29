@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadJsonData();
   users = JSON.parse(localStorage.getItem('users'));
   items = JSON.parse(localStorage.getItem('items'));
-  loadPopularProduct();
+  loadProduct(items);
 });
 
 async function loadJsonData() {
@@ -34,14 +34,7 @@ function searchItems() {
     item.name.toLowerCase().includes(searchQuery)
   );
 
-  let filteredItemsSection = document.getElementById('filteredItems');
-  filteredItemsSection.innerHTML = ''; // Clear previous results
-
-  filteredItems.forEach((item) => {
-    let itemElement = document.createElement('p');
-    itemElement.textContent = `Name: ${item.name}, Price: ${item.price}`;
-    filteredItemsSection.appendChild(itemElement);
-  });
+  loadProduct({ items: filteredItems });
 }
 
 async function isCustomerLoggedIn(username) {
@@ -58,7 +51,7 @@ function isSellerLoggedIn(username) {
   );
 }
 
-function loadPopularProduct() {
+function loadProduct(items) {
   console.log(items);
   popularProduct.innerHTML = items.items
     .map((item) => itemsToCard(item))

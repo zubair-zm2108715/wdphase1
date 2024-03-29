@@ -21,11 +21,11 @@ function purchaseToCard(purchase) {
     let product = items.items.find((item) => item.id == purchase.product_id);
     return `<div class="card">
         <img src="${product.image}" alt="Product Image">
-        <p>Product: ${product.name}</p>
-        <p>Quantity: ${purchase.quantity}</p>
-        <p>Total Cost: $${purchase.totalCost}</p>
-        <p>Address: ${purchase.address}</p>
-        <p>Seller: ${purchase.seller}</p>
+        <p class="product-name"><b>Product: </b> ${product.name}</p>
+        <p><b>Quantity: </b>${purchase.quantity}</p>
+        <p><b>Total Cost:</b> $${purchase.totalCost}</p>
+        <p><b>Address: </b>${purchase.address}</p>
+        <p><b>Seller: </b>${purchase.seller}</p>
     </div>`;
 }
 // (Abdulrahman) i add here function for the logout button
