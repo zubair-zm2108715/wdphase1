@@ -1,6 +1,6 @@
 Needed to fix
 
-1. The login button should change to logout after logging in
+1. The login button should change to logout after logging in 
 
 2. Purchase Page doesnt redirect back to home page after purchasing with logged in stage (optional)
 

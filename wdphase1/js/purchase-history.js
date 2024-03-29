@@ -19,7 +19,7 @@ function purchaseHistory() {
   purchaseHistory();
 function purchaseToCard(purchase) {
     let product = items.items.find((item) => item.id == purchase.product_id);
-    return `<div class="purchase-history">
+    return `<div class="card">
         <img src="${product.image}" alt="Product Image">
         <p>Product: ${product.name}</p>
         <p>Quantity: ${purchase.quantity}</p>

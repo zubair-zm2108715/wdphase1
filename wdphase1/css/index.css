@@ -17,6 +17,9 @@ header {
 input[type=text] {
     padding-bottom: 1rem;
 }
+.Title{
+    color: black;
+}
 
 .Button {
     margin: 0 10px;
