@@ -9,17 +9,16 @@ window.addEventListener("DOMContentLoaded", async () => {
   let sellerItemsSoldDiv = document.querySelector("#sale-history-list");
   let sellerItems = items.items.filter((item) => item.seller === username);
   if (purchases) {
-  let soldItems = Object.values(purchases.purchases).filter((purchase) => {
-    return purchase.seller === username;
-  });
-  function showSellerItemsSold() {
-    sellerItemsSoldDiv.innerHTML = soldItems
-      .map((item) => itemsToCardSold(item))
-      .join("");
+    let soldItems = Object.values(purchases.purchases).filter((purchase) => {
+      return purchase.seller === username;
+    });
+    function showSellerItemsSold() {
+      sellerItemsSoldDiv.innerHTML = soldItems
+        .map((item) => itemsToCardSold(item))
+        .join("");
+    }
+    await showSellerItemsSold();
   }
-  await showSellerItemsSold();
-}
-
 
   function showSellerItems() {
     console.log("Seller items:", sellerItems);
@@ -27,9 +26,8 @@ window.addEventListener("DOMContentLoaded", async () => {
       .map((item) => itemsToCard(item))
       .join("");
   }
-  
-  await showSellerItems();
 
+  await showSellerItems();
 });
 
 function itemsToCard(item) {
@@ -37,6 +35,7 @@ function itemsToCard(item) {
             <p hidden>${item.id}</p>
             <h3>${item.name}</h3>
             <img src="${item.image}" alt="Product Image" id="img">
+            
             <p><b>Price: </b>${item.price}</p>
             <p hidden><b>Description: </b>${item.description}</p>
             <p hidden><b>Category: </b>${item.category}</p>
@@ -44,6 +43,7 @@ function itemsToCard(item) {
             <button class="Button" id="update" onclick="updateItem('${item.id}');">Update</button>
             <input type="number" id="quantity-${item.id}" placeholder="${item.quantity}" hidden>
             <button class="saveBtn" id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
+           
             </div>
         `;
 }
@@ -69,8 +69,8 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "card") {
-    let description = e.target.querySelector('p:nth-child(5)');
-    let category = e.target.querySelector('p:nth-child(6)');
+    let description = e.target.querySelector("p:nth-child(5)");
+    let category = e.target.querySelector("p:nth-child(6)");
 
     description.hidden = !description.hidden;
     category.hidden = !category.hidden;
@@ -79,8 +79,8 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "img") {
-    let description = e.target.querySelector('p:nth-child(5)');
-    let category = e.target.querySelector('p:nth-child(6)');
+    let description = e.target.querySelector("p:nth-child(5)");
+    let category = e.target.querySelector("p:nth-child(6)");
 
     description.hidden = !description.hidden;
     category.hidden = !category.hidden;
