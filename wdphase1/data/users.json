@@ -103,37 +103,30 @@
   "sellers": [
     {
       "company_name": "ElectroMart",
-      "username": "besttech",
+      "username": "techstore",
       "password": "sellpass1",
       "bank_account": "111122223333",
       "isLogged": false
     },
     {
-      "company_name": "FashionHub",
-      "username": "fashionqueen",
+      "company_name": "TechStore",
+      "username": "techshop",
       "password": "sellpass2",
       "bank_account": "444455556666",
       "isLogged": false
     },
     {
-      "company_name": "HomeGoods",
-      "username": "audiophile",
+      "company_name": "Fragrance Store",
+      "username": "fragrancestore",
       "password": "sellpass3",
       "bank_account": "777788889999",
       "isLogged": false
     },
     {
-      "company_name": "ToyLand",
-      "username": "bagstore",
+      "company_name": "Sephora",
+      "username": "sephora",
       "password": "sellpass4",
-      "bank_account": "101112131415",
-      "isLogged": false
-    },
-    {
-      "company_name": "k",
-      "username": "k",
-      "password": "k",
-      "bank_account": "111122223333",
+      "bank_account": "101010101010",
       "isLogged": false
     }
   ],
