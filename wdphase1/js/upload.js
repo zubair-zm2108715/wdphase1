@@ -27,6 +27,8 @@ function uploadItem() {
   console.log(items);
   items.items.push(item);
   localStorage.setItem("items", JSON.stringify(items));
+  alert(`You have successfully uploaded ${itemName}`);
+
 }
 
 function goToLogin() {

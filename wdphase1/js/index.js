@@ -1,51 +1,54 @@
-usersJSON = './data/users.json';
-itemsJSON = './data/items.json';
+usersJSON = "./data/users.json";
+itemsJSON = "./data/items.json";
 
-window.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener("DOMContentLoaded", async () => {
   await loadJsonData();
-  users = JSON.parse(localStorage.getItem('users'));
-  items = JSON.parse(localStorage.getItem('items'));
+  users = JSON.parse(localStorage.getItem("users"));
+  items = JSON.parse(localStorage.getItem("items"));
   loadProduct(items);
 });
 
 async function loadJsonData() {
-  if (localStorage.getItem('users') && localStorage.getItem('items')) {
+  if (localStorage.getItem("users") && localStorage.getItem("items")) {
     return;
   }
   data1 = await fetch(usersJSON);
   const usersdata = await data1.json();
-  localStorage.setItem('users', JSON.stringify(usersdata));
+  localStorage.setItem("users", JSON.stringify(usersdata));
 
   data2 = await fetch(itemsJSON);
   const itemsdata = await data2.json();
-  localStorage.setItem('items', JSON.stringify(itemsdata));
+  localStorage.setItem("items", JSON.stringify(itemsdata));
 }
 
-users = JSON.parse(localStorage.getItem('users'));
-items = JSON.parse(localStorage.getItem('items'));
+users = JSON.parse(localStorage.getItem("users"));
+items = JSON.parse(localStorage.getItem("items"));
 
-let popularProduct = document.querySelector('#popular-product');
+let popularProduct = document.querySelector("#popular-product");
 
 function searchItems() {
-  let searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  let searchQuery = document.getElementById("searchInput").value.toLowerCase();
 
   // Filter items based on search query
   let filteredItems = items.items.filter((item) =>
     item.name.toLowerCase().includes(searchQuery)
   );
 
+  if (filteredItems.length === 0) {
+    alert("No items found");
+  }
   loadProduct({ items: filteredItems });
 }
 
 async function isCustomerLoggedIn(username) {
-  users = await JSON.parse(localStorage.getItem('users'));
+  users = await JSON.parse(localStorage.getItem("users"));
   return users.customers.some(
     (customer) => customer.username === username && customer.isLogged === true
   );
 }
 
 function isSellerLoggedIn(username) {
-  sellers = JSON.parse(localStorage.getItem('sellers'));
+  sellers = JSON.parse(localStorage.getItem("sellers"));
   return sellers.sellers.some(
     (seller) => seller.username === username && seller.isLogged === true
   );
@@ -55,7 +58,7 @@ function loadProduct(items) {
   console.log(items);
   popularProduct.innerHTML = items.items
     .map((item) => itemsToCard(item))
-    .join('');
+    .join("");
 }
 
 function itemsToCard(item) {
@@ -69,7 +72,7 @@ function itemsToCard(item) {
         </div>`;
 }
 function toProductPage(id) {
-  let username = prompt('Please enter your username');
+  let username = prompt("Please enter your username");
 
   isCustomerLoggedIn(username)
     .then(function (isLoggedIn) {
@@ -81,45 +84,43 @@ function toProductPage(id) {
         console.log(customer.money_balance);
         console.log(product.price);
         if (customer.money_balance < product.price) {
-          alert('You do not have enough money to buy this product.');
+          alert("You do not have enough money to buy this product.");
         } else {
           location.href = `purchase-item.html?id=${id}&username=${username}`;
         }
       } else {
-        alert('You must be logged in as a customer to purchase a product.');
+        alert("You must be logged in as a customer to purchase a product.");
         location.href = `login.html`;
       }
     })
     .catch(function (error) {
-      alert('Error');
+      alert("Error");
       location.href = `login.html`;
     });
 }
 
 function updateLoginButton() {
-  let loginButton = document.getElementById('loginbutton');
+  let loginButton = document.getElementById("loginbutton");
   let params = new URLSearchParams(window.location.search);
-  let username = params.get('username');
-  isCustomerLoggedIn(username)
-    .then(function (isLoggedIn) {
-      if (isLoggedIn == true) {
-        loginButton.innerHTML = 'Logout';
-      }
-      else {
-        loginButton.innerHTML = 'Login';
-      }
-  }
-  );}
+  let username = params.get("username");
+  isCustomerLoggedIn(username).then(function (isLoggedIn) {
+    if (isLoggedIn == true) {
+      loginButton.innerHTML = "Logout";
+    } else {
+      loginButton.innerHTML = "Login";
+    }
+  });
+}
 
 // Call the function when the page loads
 window.onload = updateLoginButton;
 
 function purchaseHistoryButton() {
   let params = new URLSearchParams(window.location.search);
-  let username = params.get('username');
+  let username = params.get("username");
 
   if (username == null) {
-    alert('You must be logged in as a customer to show purchase history.');
+    alert("You must be logged in as a customer to show purchase history.");
     location.href = `login.html`;
   } else {
     location.href = `purchase-history.html?username=${username}`;

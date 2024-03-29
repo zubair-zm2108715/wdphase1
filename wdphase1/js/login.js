@@ -20,13 +20,13 @@ function validateForm() {
     );
     
     if (validUser) {
-      console.log('Customer logged in');
+      alert('Customer logged in');
       validUser.isLogged = true;
       localStorage.setItem('users', JSON.stringify(users));
       login.action='index.html';
     } 
     else if (validSeller) {
-      console.log('Seller logged in');
+      alert('Seller logged in');
       validSeller.isLogged = true;
       localStorage.setItem('users', JSON.stringify(users));
       login.action='seller.html';
