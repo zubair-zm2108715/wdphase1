@@ -25,7 +25,6 @@ function purchaseToCard(purchase) {
         <p><b>Total Cost:</b> $${purchase.totalCost}</p>
         <p><b>Address: </b>${purchase.address}</p>
         <p><b>Seller: </b>${purchase.seller}</p></div>
-        
     </div>`;
 }
 function goToLogin() {
