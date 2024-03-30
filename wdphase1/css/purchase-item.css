@@ -94,3 +94,33 @@ img {
     height: 200px;
     flex: 1
 }
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+
+    #productDetails {
+        flex-grow: 1;
+    }
+
+    .grid-container {
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

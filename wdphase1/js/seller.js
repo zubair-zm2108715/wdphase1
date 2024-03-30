@@ -19,16 +19,15 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     await showSellerItemsSold();
   }
-
   function showSellerItems() {
     console.log("Seller items:", sellerItems);
     sellerItemsDiv.innerHTML = sellerItems
       .map((item) => itemsToCard(item))
       .join("");
   }
-
   await showSellerItems();
 });
+
 
 function itemsToCard(item) {
   return `<div class="card" id="card">
@@ -79,11 +78,8 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "img") {
-    let description = e.target.querySelector("p:nth-child(5)");
-    let category = e.target.querySelector("p:nth-child(6)");
-
-    description.hidden = !description.hidden;
-    category.hidden = !category.hidden;
+    e.target.nextElementSibling.nextElementSibling.hidden = false;
+    e.target.nextElementSibling.nextElementSibling.nextElementSibling.hidden = false;
   }
 });
 

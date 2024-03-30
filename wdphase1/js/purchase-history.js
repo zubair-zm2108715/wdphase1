@@ -28,7 +28,6 @@ function purchaseToCard(purchase) {
         
     </div>`;
 }
-// (Abdulrahman) i add here function for the logout button
 function goToLogin() {
   location.href = `login.html`;
 }
