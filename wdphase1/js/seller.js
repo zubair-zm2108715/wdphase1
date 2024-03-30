@@ -53,7 +53,7 @@ function itemsToCardSold(item) {
             <h3>${item.productName}</h3>
             <img src="${item.image}" alt="Product Image">
             <p><b>Price: </b>${item.price}</p>
-            <p><b>User: </b>${item.username}</p>
+            <p><b>Purchased by: </b>${item.username}</p>
             <p><b>Quantity: </b>${item.quantity}</p>
             </div>
         `;

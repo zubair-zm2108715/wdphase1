@@ -33,11 +33,11 @@ function searchItems() {
   let filteredItems = items.items.filter((item) =>
     item.name.toLowerCase().includes(searchQuery)
   );
-
+  loadProduct({ items: filteredItems });
   if (filteredItems.length === 0) {
     alert("No items found");
   }
-  loadProduct({ items: filteredItems });
+  
 }
 
 async function isCustomerLoggedIn(username) {
