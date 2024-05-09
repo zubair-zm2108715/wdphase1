@@ -18,15 +18,17 @@ model Customer {
   username        String  @unique
   password        String
   moneyBalance    Float
+  Order           Order[]
 }
 
 model Seller {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   companyName String
-  username    String   @unique
+  username    String  @unique
   password    String
   bankAccount String
   items       Item[]
+  Order       Order[]
 }
 
 model Admin {
@@ -36,7 +38,7 @@ model Admin {
 }
 
 model Item {
-  id          Int     @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   name        String
   price       Float
   quantity    Int
@@ -45,5 +47,22 @@ model Item {
   description String
   category    String
 
-  seller      Seller  @relation(fields: [sellerId], references: [id])
+  seller Seller  @relation(fields: [sellerId], references: [id])
+  Order  Order[]
+}
+
+model Order {
+  id           Int      @id @default(autoincrement())
+  customerId   Int
+  sellerId     Int
+  itemId       Int
+  quantity     Int
+  totalPrice   Float
+  orderDate    DateTime
+  deliveryDate DateTime
+  status       String
+
+  customer Customer @relation(fields: [customerId], references: [id])
+  seller   Seller   @relation(fields: [sellerId], references: [id])
+  item     Item     @relation(fields: [itemId], references: [id])
 }
