@@ -2,6 +2,15 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 // Customer functions
+async function getCustomers(){
+  try {
+    return await prisma.customer.findMany();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
 async function addCustomer(data) {
   return await prisma.customer.create({ data });
 }
@@ -74,6 +83,7 @@ async function deleteItem(id) {
 }
 
 module.exports = {
+  getCustomers,
   addCustomer,
   updateCustomer,
   deleteCustomer,
