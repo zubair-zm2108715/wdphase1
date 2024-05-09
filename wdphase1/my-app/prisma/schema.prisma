@@ -52,16 +52,15 @@ model Item {
 }
 
 model Order {
-  id           Int      @id @default(autoincrement())
   customerId   Int
   sellerId     Int
   itemId       Int
-  quantity     Int
-  totalPrice   Float
   orderDate    DateTime
   deliveryDate DateTime
   status       String
 
+  @@id([customerId, sellerId, orderDate])
+  
   customer Customer @relation(fields: [customerId], references: [id])
   seller   Seller   @relation(fields: [sellerId], references: [id])
   item     Item     @relation(fields: [itemId], references: [id])
