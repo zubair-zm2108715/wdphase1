@@ -1,4 +1,4 @@
-usersJSON = "./data/users.json";
+/* usersJSON = "./data/users.json";
 itemsJSON = "./data/items.json";
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -22,33 +22,40 @@ async function loadJsonData() {
 }
 
 users = JSON.parse(localStorage.getItem("users"));
-items = JSON.parse(localStorage.getItem("items"));
+items = JSON.parse(localStorage.getItem("items")); */
 
-let popularProduct = document.querySelector("#popular-product");
+fetch('http://localhost:3000/api/item').then((response) => {
+  response.json().then((data) => {
+    items = data;
+    loadProduct(items);
+  });
+}, console.error);
+
+fetch('http://localhost:3000/api/customer').then((response) => {
+  response.json().then((data1) => {
+    customers = data1;
+  });
+}, console.error);
+
+let popularProduct = document.querySelector('#popular-product');
 
 function searchItems() {
-  let searchQuery = document.getElementById("searchInput").value.toLowerCase();
+  let searchQuery = document.getElementById('searchInput').value.toLowerCase();
 
   // Filter items based on search query
-  let filteredItems = items.items.filter((item) =>
+  let filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchQuery)
   );
-  loadProduct({ items: filteredItems });
+  loadProduct(filteredItems);
   if (filteredItems.length === 0) {
-    alert("No items found");
+    alert('No items found');
   }
-  
 }
 
-async function isCustomerLoggedIn(username) {
-  users = await JSON.parse(localStorage.getItem("users"));
-  return users.customers.some(
-    (customer) => customer.username === username && customer.isLogged === true
-  );
-}
+loggedcustomer = JSON.parse(localStorage.getItem('users'));
 
 function isSellerLoggedIn(username) {
-  sellers = JSON.parse(localStorage.getItem("sellers"));
+  sellers = JSON.parse(localStorage.getItem('sellers'));
   return sellers.sellers.some(
     (seller) => seller.username === username && seller.isLogged === true
   );
@@ -56,9 +63,7 @@ function isSellerLoggedIn(username) {
 
 function loadProduct(items) {
   console.log(items);
-  popularProduct.innerHTML = items.items
-    .map((item) => itemsToCard(item))
-    .join("");
+  popularProduct.innerHTML = items.map((item) => itemsToCard(item)).join('');
 }
 
 function itemsToCard(item) {
@@ -72,42 +77,31 @@ function itemsToCard(item) {
         </div>`;
 }
 function toProductPage(id) {
-  let username = prompt("Please enter your username");
-
-  isCustomerLoggedIn(username)
-    .then(function (isLoggedIn) {
-      if (isLoggedIn == true) {
-        let customer = users.customers.find(
-          (customer) => customer.username === username
-        );
-        let product = items.items.find((item) => item.id === id);
-        console.log(customer.money_balance);
-        console.log(product.price);
-        if (customer.money_balance < product.price) {
-          alert("You do not have enough money to buy this product.");
-        } else {
-          location.href = `purchase-item.html?id=${id}&username=${username}`;
-        }
-      } else {
-        alert("You must be logged in as a customer to purchase a product.");
-        location.href = `login.html`;
-      }
-    })
-    .catch(function (error) {
-      alert("Error");
-      location.href = `login.html`;
-    });
+  if (loggedcustomer.isLogged) {
+    let customer = customers.find((customer) => customer.username === loggedcustomer.username);
+    let product = items.find((item) => item.id === id);
+    console.log(customer.money_balance);
+    console.log(product.price);
+    if (customer.money_balance < product.price) {
+      alert('You do not have enough money to buy this product.');
+    } else {
+      location.href = `purchase-item.html?id=${id}&username=${loggedcustomer.username}`;
+    }
+  } else {
+    alert('You must be logged in as a customer to purchase a product.');
+    location.href = `login.html`;
+  }
 }
 
 function updateLoginButton() {
-  let loginButton = document.getElementById("loginbutton");
+  let loginButton = document.getElementById('loginbutton');
   let params = new URLSearchParams(window.location.search);
-  let username = params.get("username");
+  let username = params.get('username');
   isCustomerLoggedIn(username).then(function (isLoggedIn) {
     if (isLoggedIn == true) {
-      loginButton.innerHTML = "Logout";
+      loginButton.innerHTML = 'Logout';
     } else {
-      loginButton.innerHTML = "Login";
+      loginButton.innerHTML = 'Login';
     }
   });
 }
@@ -117,10 +111,10 @@ window.onload = updateLoginButton;
 
 function purchaseHistoryButton() {
   let params = new URLSearchParams(window.location.search);
-  let username = params.get("username");
+  let username = params.get('username');
 
   if (username == null) {
-    alert("You must be logged in as a customer to show purchase history.");
+    alert('You must be logged in as a customer to show purchase history.');
     location.href = `login.html`;
   } else {
     location.href = `purchase-history.html?username=${username}`;

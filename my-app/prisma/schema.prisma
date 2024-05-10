@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Customer {
-  id              Int     @id @default(autoincrement())
+  id              Int     @id
   name            String
   surname         String
   shippingAddress String
@@ -22,7 +22,7 @@ model Customer {
 }
 
 model Seller {
-  id          Int     @id @default(autoincrement())
+  id          Int     @id
   companyName String
   username    String  @unique
   password    String
@@ -32,7 +32,7 @@ model Seller {
 }
 
 model Admin {
-  id       Int    @id @default(autoincrement())
+  id       Int    @id
   username String @unique
   password String
 }
@@ -52,16 +52,16 @@ model Item {
 }
 
 model Order {
-  customerId   Int
-  sellerId     Int
-  itemId       Int
-  orderDate    DateTime
-  deliveryDate DateTime
-  status       String
+  id         Int      @id @default(autoincrement())
+  customerId Int
+  sellerId   Int
+  itemId     Int
+  quantity   Int
+  address    String
+  totalPrice Float
+  date       DateTime @updatedAt
 
   customer Customer @relation(fields: [customerId], references: [id])
   seller   Seller   @relation(fields: [sellerId], references: [id])
   item     Item     @relation(fields: [itemId], references: [id])
-
-  @@id([customerId, sellerId, orderDate])
 }

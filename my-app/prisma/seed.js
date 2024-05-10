@@ -16,9 +16,7 @@ async function seed() {
     const items = await fs.readJSON(itemsPath);
     const admin = await fs.readJSON(adminPath);
 
-    // delete all data
     await prisma.customer.deleteMany();
-    await prisma.seller.deleteMany();
 
     // Seed customers
     for (const customer of customers)
