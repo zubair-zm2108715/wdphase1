@@ -23,8 +23,6 @@ export default function Home() {
     fetchStats();
   }, []);
 
-  
-
   // Extracting data for Line Chart
   // console.log(stats)
   const BarChartData_getAverageQuantitySoldPerProduct =
@@ -47,10 +45,10 @@ export default function Home() {
       quantity: item._sum.quantity,
     }));
 
-  const BarChartData_totalRevenuePerMonth =
+  const BarChartData_totalRevenuePerHour =
     stats &&
-    stats.totalRevenuePerMonth.map((item) => ({
-      name: new Date(item.date).getHours(), 
+    stats.totalRevenuePerHour.map((item) => ({
+      name: new Date(item.date).getHours(),
       totalPrice: item._sum.totalPrice,
     }));
   const averagePurchaseAmountPerCustomerData =
@@ -75,9 +73,9 @@ export default function Home() {
       {stats && (
         <div className="dashboard">
           <div className="chart-container">
-            <h2>Total Revenue Per Month</h2>
+            <h2>Total Revenue Per Hour</h2>
             <BarChart
-              data={BarChartData_totalRevenuePerMonth}
+              data={BarChartData_totalRevenuePerHour}
               datakey="totalPrice"
               nameSize={5}
             />

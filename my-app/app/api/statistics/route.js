@@ -5,7 +5,7 @@ export async function GET(request) {
     const year = new Date().getFullYear().toString();
     const getAverageQuantitySoldPerProduct =
       await repo.getAverageQuantitySoldPerProduct();
-    const totalRevenuePerMonth = await repo.getTotalRevenuePerMonth(year);
+    const totalRevenuePerHour = await repo.getTotalRevenuePerHour(year);
     const topProductsBySales = await repo.getTopProductsBySales();
     const customersPerLocation = await repo.getcustomersPerLocation();
     const averagePurchaseAmountPerCustomer =
@@ -14,7 +14,7 @@ export async function GET(request) {
 
     return Response.json({
       getAverageQuantitySoldPerProduct,
-      totalRevenuePerMonth,
+      totalRevenuePerHour,
       topProductsBySales,
       customersPerLocation,
       averagePurchaseAmountPerCustomer,

@@ -10,8 +10,8 @@ export default function Barchart(props)
              <CartesianGrid strokeDasharray="3 3"/>
            <XAxis 
               dataKey="name" 
-              tick={{ fontSize: 15 }} // Adjust the font size of the ticks
-              label={{ fontSize: props.nameSize }} // Adjust the font size of the label
+              tick={{ fontSize: 20 }} // Adjust the font size of the ticks
+              label={{ fontSize: 20 }} // Adjust the font size of the label
               interval={0} // Set the interval between each tick to display all labels
             /> 
                <YAxis />

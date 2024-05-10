@@ -1,27 +1,27 @@
-/* sellerDashboardStyles.css */
 .app {
   padding: 20px;
+  background-color: aliceblue;
 }
 
 .chart-container {
   width: 100%;
-  max-width: 1500px; /* Set a maximum width for responsiveness */
-  margin: 20px auto; /* Add margin for spacing between charts */
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-  padding: 20px; /* Padding for content */
+  max-width: 1500px;
+  margin: 20px auto;
+  background-color: lightblue;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .chart-container h2 {
   margin-top: 0;
-  font-size: 24px; 
-  color: #333;
+  font-size: 24px;
+  color: black;
 }
 
 .chart-container p {
-  font-size: 16px; 
-  color: #666; /* Slightly lighter text color */
+  font-size: 16px;
+  color: lightcoral;
 }
 
 .chart-container > * {
@@ -30,7 +30,7 @@
 
 h1 {
   text-align: center;
-  font-size: 32px; /* Larger font size for page title */
-  color: #333; /* Dark text color */
-  margin-bottom: 20px; /* Add some spacing below the title */
+  font-size: 32px;
+  color: gray;
+  margin-bottom: 20px;
 }

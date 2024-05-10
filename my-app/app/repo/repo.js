@@ -96,7 +96,7 @@ class Repo {
     });
   }
 
-  async getTotalRevenuePerMonth(year) {
+  async getTotalRevenuePerHour(year) {
     try {
       return await prisma.order.groupBy({
         select: {
