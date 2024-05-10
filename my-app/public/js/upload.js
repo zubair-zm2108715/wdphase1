@@ -1,36 +1,72 @@
-users = JSON.parse(localStorage.getItem("users"));
-items = JSON.parse(localStorage.getItem("items"));
-purchases = JSON.parse(localStorage.getItem("purchases"));
+fetch('http://localhost:3000/api/item').then((response) => {
+  response.json().then((data) => {
+    items1 = data;
+    localStorage.setItem('items', JSON.stringify(items1));
+  });
+}, console.error);
+
+fetch('http://localhost:3000/api/customer').then((response) => {
+  response.json().then((data) => {
+    customers = data;
+  });
+}, console.error);
+
+fetch('http://localhost:3000/api/seller').then((response) => {
+  response.json().then((data) => {
+    sellers = data;
+  });
+}, console.error);
+
+fetch('http://localhost:3000/api/transaction').then((response) => {
+  response.json().then((data) => {
+    purchases = data;
+  });
+}, console.error);
+
+let params = new URLSearchParams(window.location.search);
+let username = params.get('username');
 
 function backToHome() {
-  location.href = "index.html";
+  location.href = 'index.html';
+}
+
+items = JSON.parse(localStorage.getItem('items'));
+
+function getSellerId(username) {
+  let seller = sellers.find((seller) => seller.username === username);
+  return seller.id;
 }
 
 function uploadItem() {
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get("username");
-  let itemName = document.getElementById("itemName").value;
-  let price = document.getElementById("price").value;
-  let quantity = document.getElementById("quantity").value;
-  let picture = document.getElementById("picture").value;
-  let details = document.getElementById("details").value;
-  let category = document.getElementById("category").value;
-  let id = items.items.length + 1;
-  let item = {
-    id: id,
+  let itemName = document.getElementById('itemName').value;
+  let price = parseInt(document.getElementById('price').value);
+  let quantity = parseInt(document.getElementById('quantity').value);
+  let picture = document.getElementById('picture').value;
+  let details = document.getElementById('details').value;
+  let category = document.getElementById('category').value;
+  let newItem = {
     name: itemName,
     price: price,
     quantity: quantity,
-    seller: username,
+    sellerId: parseInt(getSellerId(username)),
     image: picture,
     description: details,
     category: category,
   };
-  console.log(items);
-  items.items.push(item);
-  localStorage.setItem("items", JSON.stringify(items));
-  alert(`You have successfully uploaded ${itemName}`);
+  fetch('http://localhost:3000/api/item', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newItem),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      window.location.href = `seller.html?username=${seller.username}`;
+    })
+    .catch((error) => console.error('Error uploading item:', error));
 
+  alert(`You have successfully uploaded ${itemName}`);
 }
 
 function goToLogin() {

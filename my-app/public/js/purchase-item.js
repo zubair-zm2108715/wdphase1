@@ -1,3 +1,6 @@
+
+
+
 fetch('http://localhost:3000/api/item').then((response) => {
   response.json().then((data) => {
     items = data;
@@ -6,23 +9,7 @@ fetch('http://localhost:3000/api/item').then((response) => {
     let product = items.find((item) => item.id == id);
     // set the product in the localStorage
     localStorage.setItem('product', JSON.stringify(product));
-
-    container = document.querySelector('.container1');
     container.innerHTML = productDetails(product);
-    function productDetails(item) {
-      return `
-      <img class="img" src="${item.image}">
-      <div id="productDetails">
-        <h2>Product Details</h2>
-        <p class="productName">${item.name}</p>
-        <p class="price">${item.price}</p>
-        <p class="description">
-          ${item.description}
-        </p>
-      </div>
-    </div>
-  `;
-    }
   });
 }, console.error);
 
@@ -34,6 +21,23 @@ fetch('http://localhost:3000/api/customer').then((response) => {
 
 product = JSON.parse(localStorage.getItem('product'));
 customer = JSON.parse(localStorage.getItem('users'));
+
+container = document.querySelector('.container1');
+container.innerHTML = productDetails(product);
+function productDetails(item) {
+  return `
+      <img class="img" src="${item.image}">
+      <div id="productDetails">
+        <h2>Product Details</h2>
+        <p class="productName">${item.name}</p>
+        <p class="price">${item.price}</p>
+        <p class="description">
+          ${item.description}
+        </p>
+      </div>
+    </div>
+  `;
+}
 
 function purchaseItem() {
   console.log(product);
@@ -65,7 +69,7 @@ function purchaseItem() {
       if (responseData.message === 'Purchase successful') {
         // Redirect to home page after successful purchase
         alert('Purchase successful');
-        window.location.href = `index.html?user=${currentUser}`;
+        window.location.href = `index.html?username=${customer.username}`;
       } else {
         throw new Error(responseData.message);
       }

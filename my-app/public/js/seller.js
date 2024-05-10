@@ -83,13 +83,9 @@ function itemsToCard(item) {
             <img src="${item.image}" alt="Product Image" id="img">
             
             <p><b>Price: </b>${item.price}</p>
-            <p hidden><b>Description: </b>${item.description}</p>
-            <p hidden><b>Category: </b>${item.category}</p>
             <p><b>Quantity: </b>${item.quantity}</p>
-            <button class="Button" id="update" onclick="updateItem('${item.id}');">Update</button>
-            <input type="number" id="quantity-${item.id}" placeholder="${item.quantity}" hidden>
-            <button class="saveBtn" id="save" onclick="saveItem('${item.id}')" hidden>Save</button>
-           
+            <p><b>Description: </b>${item.description}</p>
+            <p><b>Category: </b>${item.category}</p>
             </div>
         `;
 }
@@ -110,30 +106,6 @@ function getCustomerUsername(customerId) {
   return customer ? customer.username : 'Unknown';
 }
 }
-
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'update') {
-    e.target.nextElementSibling.hidden = false;
-    e.target.nextElementSibling.nextElementSibling.hidden = false;
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'card') {
-    let description = e.target.querySelector('p:nth-child(5)');
-    let category = e.target.querySelector('p:nth-child(6)');
-
-    description.hidden = !description.hidden;
-    category.hidden = !category.hidden;
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'img') {
-    e.target.nextElementSibling.nextElementSibling.hidden = false;
-    e.target.nextElementSibling.nextElementSibling.nextElementSibling.hidden = false;
-  }
-});
 
 function updateItem(e) {
   console.log('Item id:', e);

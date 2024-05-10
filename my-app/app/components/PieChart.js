@@ -1,5 +1,5 @@
 'use client'
-import { PieChart, Pie, Sector, Cell } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -19,7 +19,7 @@ const renderCustomizedLabel = (data) => ({ cx, cy, midAngle, innerRadius, outerR
 export default function Piechart(props)
 {
     return(
-        <PieChart width={700} height={600}>
+        <PieChart width={950} height={600}>
         <Pie
           data={props.data}
           cx="50%"

@@ -1,14 +1,16 @@
 // pages/index.js
 'use client';
-import './components/Statistics.css';
+import './statistics.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import LineChart from './components/linechart';
 import BarChart from './components/Barchart';
 import Piechart from './components/PieChart';
 
 export default function Home() {
   const [stats, setStats] = useState(null);
+  const [items, setItems] = useState(null);
+  const [customers, setCustomers] = useState(null);
+  const [sellers, setSellers] = useState(null);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -20,28 +22,70 @@ export default function Home() {
       }
     };
 
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('/api/item');
+        setItems(response.data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('/api/customer');
+        setCustomers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    const fetchSellers = async () => {
+      try {
+        const response = await axios.get('/api/seller');
+        setSellers(response.data);
+      } catch (error) {
+        console.error('Error fetching sellers:', error);
+      }
+    }; // Add a comma here
+    fetchSellers();
     fetchStats();
+    fetchItems();
+    fetchUsers();
   }, []);
 
-  // Extracting data for Line Chart
-  // console.log(stats)
+  function getCustomerUsername(customerId) {
+    let customer = customers.find((customer) => customer.id === customerId);
+    return customer ? customer.name : 'Unknown';
+  }
+
+  function getItemName(itemId) {
+    let item = items.find((item) => item.id === itemId);
+    return item ? item.name : 'Unknown';
+  }
+
+  function getSellerUsername(sellerId) {
+    let seller = sellers.find((seller) => seller.id === sellerId);
+    return seller ? seller.username : 'Unknown';
+  }
+
   const BarChartData_getAverageQuantitySoldPerProduct =
     stats &&
     stats.getAverageQuantitySoldPerProduct.map((item) => ({
-      name: `Product ID ${item.itemId}`,
+      name: `${getItemName(item.itemId)}`,
       Avg_quantity: item._avg.quantity,
     }));
   const PieChartData_getAverageQuantitySoldPerProduct =
     stats &&
     stats.totalPurchasesPerSeller.map((item) => ({
-      name: ` Id:${item.sellerId}`,
+      name: `${getSellerUsername(item.sellerId)}`,
       count: item._count,
     }));
 
   const topProductsBySalesData =
     stats &&
     stats.topProductsBySales.map((item) => ({
-      name: ` ${item.itemId}`,
+      name: `${getItemName(item.itemId)}`,
       quantity: item._sum.quantity,
     }));
 
@@ -54,7 +98,7 @@ export default function Home() {
   const averagePurchaseAmountPerCustomerData =
     stats &&
     stats.averagePurchaseAmountPerCustomer.map((item) => ({
-      name: `Customer ${item.customerId}`,
+      name: `${getCustomerUsername(item.customerId)}`,
       averagePurchaseAmount: item._avg.totalPrice,
     }));
 
@@ -69,7 +113,8 @@ export default function Home() {
 
   return (
     <div className="app">
-      <h1>Admin Dashboard</h1>
+      <h1>Statistics Page</h1>
+      <button onClick={() => (window.location.href = '/index.html')}>Home</button>
       {stats && (
         <div className="dashboard">
           <div className="chart-container">
@@ -89,6 +134,10 @@ export default function Home() {
             />
           </div>
           <div className="chart-container">
+            <h2>Customers Per Location</h2>
+            <Piechart data={customersPerLocationData} datakey="count" />
+          </div>
+          <div className="chart-container">
             <h2>Total Average Quantity Sold Per Product</h2>
             <BarChart
               data={BarChartData_getAverageQuantitySoldPerProduct}
@@ -97,7 +146,7 @@ export default function Home() {
             />
           </div>
           <div className="chart-container">
-            <h2>Total Purchases Percentage Per Seller</h2>
+            <h2>Purchases Percentage Per Seller</h2>
             <Piechart
               data={PieChartData_getAverageQuantitySoldPerProduct}
               datakey="count"
@@ -110,10 +159,6 @@ export default function Home() {
               datakey="averagePurchaseAmount"
               nameSize={30}
             />
-          </div>
-          <div className="chart-container">
-            <h2>Customers Per Location</h2>
-            <Piechart data={customersPerLocationData} datakey="count" />
           </div>
         </div>
       )}

@@ -54,13 +54,6 @@ function searchItems() {
 
 loggedcustomer = JSON.parse(localStorage.getItem('users'));
 
-function isSellerLoggedIn(username) {
-  sellers = JSON.parse(localStorage.getItem('sellers'));
-  return sellers.sellers.some(
-    (seller) => seller.username === username && seller.isLogged === true
-  );
-}
-
 function loadProduct(items) {
   console.log(items);
   popularProduct.innerHTML = items.map((item) => itemsToCard(item)).join('');
@@ -77,6 +70,11 @@ function itemsToCard(item) {
         </div>`;
 }
 function toProductPage(id) {
+  if(loggedcustomer == null){
+    loggedcustomer = {isLogged: false};
+    alert('You must be logged in as a customer to purchase a product.');
+    location.href = `login.html`;
+  }
   if (loggedcustomer.isLogged) {
     let customer = customers.find((customer) => customer.username === loggedcustomer.username);
     let product = items.find((item) => item.id === id);
@@ -87,10 +85,7 @@ function toProductPage(id) {
     } else {
       location.href = `purchase-item.html?id=${id}&username=${loggedcustomer.username}`;
     }
-  } else {
-    alert('You must be logged in as a customer to purchase a product.');
-    location.href = `login.html`;
-  }
+  } 
 }
 
 function updateLoginButton() {

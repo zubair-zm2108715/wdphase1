@@ -160,17 +160,16 @@ class Repo {
   }
   async addItem(name, price, quantity, sellerId, image, description, category) {
     return await prisma.item.create({
-        data: {
-          name,
-          price,
-          quantity,
-          sellerId,
-          image,
-          description,
-          category,
-        },
-      });
-    
+      data: {
+        name,
+        price,
+        quantity,
+        sellerId,
+        image,
+        description,
+        category,
+      },
+    });
   }
 
   async getItems() {
@@ -242,7 +241,7 @@ class Repo {
       });
 
       // Update customer's moneyBalance
-      await this.prisma.customer.update({
+      await prisma.customer.update({
         where: {
           id: customerId,
         },
@@ -293,87 +292,3 @@ class Repo {
 }
 
 export default new Repo();
-
-/* async getCustomers(){
-  try {
-    return await prisma.customer.findMany();
-  }
-  catch (error) {
-    console.error(error);
-  }
-}
-
-async addCustomer(data) {
-  return await prisma.customer.create({ data });
-}
-
-async updateCustomer(id, data) {
-  return await prisma.customer.update({
-    where: { id },
-    data,
-  });
-}
-
-async deleteCustomer(id) {
-  return await prisma.customer.delete({
-    where: { id },
-  });
-}
-
-// Seller functions
-async addSeller(data) {
-  return await prisma.seller.create({ data });
-}
-
-async updateSeller(id, data) {
-  return await prisma.seller.update({
-    where: { id },
-    data,
-  });
-}
-
-async deleteSeller(id) {
-  return await prisma.seller.delete({
-    where: { id },
-  });
-}
-
-// Admin functions
-async addAdmin(data) {
-  return await prisma.admin.create({ data });
-}
-
-async updateAdmin(id, data) {
-  return await prisma.admin.update({
-    where: { id },
-    data,
-  });
-}
-
-async deleteAdmin(id) {
-  return await prisma.admin.delete({
-    where: { id },
-  });
-}
-
-// Item functions
-async getItems() {
-  return await prisma.item.findMany();
-}
-
-async addItem(data) {
-  return await prisma.item.create({ data });
-}
-
-async updateItem(id, data) {
-  return await prisma.item.update({
-    where: { id },
-    data,
-  });
-}
-
-async deleteItem(id) {
-  return await prisma.item.delete({
-    where: { id },
-  });
-} */
