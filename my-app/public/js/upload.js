@@ -66,7 +66,6 @@ function uploadItem() {
     })
     .catch((error) => console.error('Error uploading item:', error));
 
-  alert(`You have successfully uploaded ${itemName}`);
 }
 
 function goToLogin() {
