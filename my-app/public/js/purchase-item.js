@@ -1,12 +1,11 @@
-
 fetch('http://localhost:3000/api/item').then((response) => {
   response.json().then((data) => {
     items = data;
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
-    let product1 = items.find((item) => item.id == id);
+    let product = items.find((item) => item.id == id);
     // set the product in the localStorage
-    localStorage.setItem('product', JSON.stringify(product1));
+    localStorage.setItem('product', JSON.stringify(product));
 
     container = document.querySelector('.container1');
     container.innerHTML = productDetails(product);
@@ -37,6 +36,7 @@ product = JSON.parse(localStorage.getItem('product'));
 customer = JSON.parse(localStorage.getItem('users'));
 
 function purchaseItem() {
+  console.log(product);
   let purchaseQuantity = parseInt(document.getElementById('p_quantity').value);
   let totalCost = product.price * purchaseQuantity;
 
@@ -67,7 +67,7 @@ function purchaseItem() {
         alert('Purchase successful');
         window.location.href = `index.html?user=${currentUser}`;
       } else {
-        throw new Error('Purchase failed');
+        throw new Error(responseData.message);
       }
     })
     .catch((error) => {
@@ -75,10 +75,9 @@ function purchaseItem() {
       console.error('Purchase error:', error.message);
       alert('Purchase failed. Please try again later.');
     });
-  
 
   alert(
-    `You have successfully purchased ${purchaseQuantity} ${product.name}(s) for a total cost of $${totalCost}`
+    `You have successfully purchased ${purchaseQuantity} ${product.name}(s) for a total cost of $${totalCost}. Thank you for shopping with us!`
   );
 }
 function backToHome() {
