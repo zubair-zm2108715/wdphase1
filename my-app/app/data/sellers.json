@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "companyName": "ElectroMart",
+    "username": "techstore",
+    "password": "sellpass1",
+    "bankAccount": "111122223333"
+  },
+  {
+    "id": 2,
+    "companyName": "TechStore",
+    "username": "techshop",
+    "password": "sellpass2",
+    "bankAccount": "444455556666"
+  },
+  {
+    "id": 3,
+    "companyName": "Fragrance Store",
+    "username": "fragrancestore",
+    "password": "sellpass3",
+    "bankAccount": "777788889999"
+  },
+  {
+    "id": 4,
+    "companyName": "Sephora",
+    "username": "sephora",
+    "password": "sellpass4",
+    "bankAccount": "101010101010"
+  }
+]

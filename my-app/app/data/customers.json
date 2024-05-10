@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "surname": "Smith",
+    "shippingAddress": "456 Oak St, Townsville",
+    "username": "alice123",
+    "password": "pass123",
+    "moneyBalance": 1500
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "surname": "Johnson",
+    "shippingAddress": "789 Pine St, Cityville",
+    "username": "bob456",
+    "password": "pass456",
+    "moneyBalance": 2000
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "surname": "Brown",
+    "shippingAddress": "321 Elm St, Villagetown",
+    "username": "charlie789",
+    "password": "pass789",
+    "moneyBalance": 1800
+  },
+  {
+    "id": 4,
+    "name": "David",
+    "surname": "Lee",
+    "shippingAddress": "654 Birch St, Hamletville",
+    "username": "david101",
+    "password": "pass101",
+    "moneyBalance": 2200
+  },
+  {
+    "id": 5,
+    "name": "Eve",
+    "surname": "Davis",
+    "shippingAddress": "987 Maple St, Suburbia",
+    "username": "eve202",
+    "password": "pass202",
+    "moneyBalance": 1900
+  },
+  {
+    "id": 6,
+    "name": "Frank",
+    "surname": "Wilson",
+    "shippingAddress": "123 Cedar St, Riverside",
+    "username": "frank303",
+    "password": "pass303",
+    "moneyBalance": 1600
+  },
+  {
+    "id": 7,
+    "name": "Grace",
+    "surname": "Anderson",
+    "shippingAddress": "456 Oak St, Hillside",
+    "username": "grace404",
+    "password": "pass404",
+    "moneyBalance": 2300
+  },
+  {
+    "id": 8,
+    "name": "Harry",
+    "surname": "Martinez",
+    "shippingAddress": "789 Pine St, Lakeside",
+    "username": "harry505",
+    "password": "pass505",
+    "moneyBalance": 2100
+  },
+  {
+    "id": 9,
+    "name": "Ivy",
+    "surname": "Garcia",
+    "shippingAddress": "321 Elm St, Mountainview",
+    "username": "ivy606",
+    "password": "pass606",
+    "moneyBalance": 1750
+  },
+  {
+    "id": 10,
+    "name": "Jack",
+    "surname": "Hernandez",
+    "shippingAddress": "654 Birch St, Seaside",
+    "username": "jack707",
+    "password": "pass707",
+    "moneyBalance": 1950
+  },
+  {
+    "id": 11,
+    "name": "J",
+    "surname": "j",
+    "shippingAddress": "987 Maple St, Harborview",
+    "username": "j",
+    "password": "j",
+    "moneyBalance": 19000
+  }
+]
