@@ -14,6 +14,7 @@ function uploadItem() {
   let quantity = document.getElementById("quantity").value;
   let picture = document.getElementById("picture").value;
   let details = document.getElementById("details").value;
+  let category = document.getElementById("category").value;
   let id = items.items.length + 1;
   let item = {
     id: id,
@@ -23,6 +24,7 @@ function uploadItem() {
     seller: username,
     image: picture,
     description: details,
+    category: category,
   };
   console.log(items);
   items.items.push(item);

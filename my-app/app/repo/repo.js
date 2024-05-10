@@ -69,8 +69,8 @@ class Repo {
 
   async getcustomersPerLocation() {
     try {
-      return await prisma.customer.groupBy({
-        by: ['shippingAddress'],
+      return await prisma.order.groupBy({
+        by: ['address'],
         _count: true,
       });
     } catch (error) {
@@ -158,23 +158,19 @@ class Repo {
       throw new Error('Error during login: ' + error.message);
     }
   }
-  async addItem(name, price, quantity, sellerId, imageUrl, description) {
-    try {
-      const newItem = await this.prisma.item.create({
+  async addItem(name, price, quantity, sellerId, image, description, category) {
+    return await prisma.item.create({
         data: {
           name,
           price,
           quantity,
           sellerId,
-          imageUrl,
+          image,
           description,
+          category,
         },
       });
-      console.log('done');
-      return newItem;
-    } catch (error) {
-      throw new Error('Error adding item: ' + error.message);
-    }
+    
   }
 
   async getItems() {
