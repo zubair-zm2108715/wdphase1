@@ -1,14 +1,12 @@
-/* users = JSON.parse(localStorage.getItem('users'));
-items = JSON.parse(localStorage.getItem('items')); */
 
 fetch('http://localhost:3000/api/item').then((response) => {
   response.json().then((data) => {
     items = data;
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
-    let product = items.find((item) => item.id == id);
+    let product1 = items.find((item) => item.id == id);
     // set the product in the localStorage
-    localStorage.setItem('product', JSON.stringify(product));
+    localStorage.setItem('product', JSON.stringify(product1));
 
     container = document.querySelector('.container1');
     container.innerHTML = productDetails(product);
@@ -39,7 +37,7 @@ product = JSON.parse(localStorage.getItem('product'));
 customer = JSON.parse(localStorage.getItem('users'));
 
 function purchaseItem() {
-  let purchaseQuantity = document.getElementById('p_quantity').value;
+  let purchaseQuantity = parseInt(document.getElementById('p_quantity').value);
   let totalCost = product.price * purchaseQuantity;
 
   if (product.quantity < purchaseQuantity) {
@@ -55,7 +53,7 @@ function purchaseItem() {
     quantity: purchaseQuantity,
   };
 
-  fetch('http://localhost:3000/api/transactions', {
+  fetch('http://localhost:3000/api/transaction', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -77,32 +75,10 @@ function purchaseItem() {
       console.error('Purchase error:', error.message);
       alert('Purchase failed. Please try again later.');
     });
-  /* product.quantity -= purchaseQuantity;
-
-  customer.money_balance -= totalCost;
-
-  purchaseQuantity = parseInt(purchaseQuantity);
-  let purchase = {
-      username: username,
-      product_id: id,
-      productName: product.name,
-      quantity: purchaseQuantity,
-      price: product.price,
-      image: product.image,
-      totalCost: totalCost,
-      address: purchaseAddress,
-      seller: product.seller,
-  };
-
-  localStorage.setItem('users', JSON.stringify(users));
-  localStorage.setItem('items', JSON.stringify(items));
-
-  let purchases = JSON.parse(localStorage.getItem('purchases')) || { purchases: [] };
-  purchases.purchases.push(purchase);
-  localStorage.setItem('purchases', JSON.stringify(purchases)); */
+  
 
   alert(
-    `You have successfully purchased ${purchaseQuantity} ${product.name}(s) for a total cost of $${totalCost}. Your remaining balance is $${customer.money_balance}.`
+    `You have successfully purchased ${purchaseQuantity} ${product.name}(s) for a total cost of $${totalCost}`
   );
 }
 function backToHome() {
