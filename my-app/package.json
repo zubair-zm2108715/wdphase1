@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
+    "@vercel/postgres": "^0.8.0",
     "axios": "^1.6.8",
     "fs-extra": "^11.2.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "recharts": "^2.12.7"
+    "recharts": "^2.12.7",
+    "vercel": "^34.1.10"
   },
   "devDependencies": {
     "prisma": "^5.13.0"
