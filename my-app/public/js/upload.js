@@ -8,6 +8,7 @@ fetch('http://localhost:3000/api/item').then((response) => {
 fetch('http://localhost:3000/api/customer').then((response) => {
   response.json().then((data) => {
     customers = data;
+    
   });
 }, console.error);
 
@@ -34,7 +35,13 @@ items = JSON.parse(localStorage.getItem('items'));
 
 localseller = JSON.parse(localStorage.getItem('sellers'));
 
-function uploadItem() {
+function goToSeller() {
+  location.href = `seller.html?username=${localseller.username}`;
+}
+
+function uploadItem(event) {
+  event.preventDefault();
+
   let itemName = document.getElementById('itemName').value;
   let price = parseInt(document.getElementById('price').value);
   let quantity = parseInt(document.getElementById('quantity').value);
@@ -50,7 +57,8 @@ function uploadItem() {
     description: details,
     category: category,
   };
-
+  items.push(newItem);
+  localStorage.setItem('items', JSON.stringify(items));
   fetch('http://localhost:3000/api/item', {
     method: 'POST',
     headers: {
@@ -75,17 +83,10 @@ function uploadItem() {
       console.log('Request completed');
       goToSeller(); // Redirect to the seller page
     });
-}
-
-function goToSeller() {
-  location.href = `seller.html?username=${localseller.username}`;
+  window.location.assign('seller.html');
 }
 
 function goToLogin() {
   location.href = `login.html`;
   localStorage.removeItem('seller');
-}
-
-function goToSeller() {
-  location.href = `seller.html?username=${localseller.username}`;
 }

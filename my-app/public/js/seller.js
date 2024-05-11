@@ -27,6 +27,7 @@ fetch('http://localhost:3000/api/seller/')
       .then((response) => response.json())
       .then((data) => {
         let soldItems = data;
+        purchases = localStorage.setItem('purchases', JSON.stringify(soldItems));
         console.log('Sold items:', soldItems);
         let sellerItemsSoldDiv = document.querySelector('#sale-history-list');
         sellerItemsSoldDiv.innerHTML = soldItems
@@ -39,6 +40,7 @@ fetch('http://localhost:3000/api/seller/')
       .then((response) => response.json())
       .then((data) => {
         customers = data;
+        localStorage.setItem('customers', JSON.stringify(customers));
         console.log('Items:', items);
       })
       .catch(console.error);
@@ -54,14 +56,28 @@ fetch('http://localhost:3000/api/seller/')
   .catch(console.error);
 
 let sellerItemsDiv = document.querySelector('#item-list');
+
+
+
+localseller = JSON.parse(localStorage.getItem('sellers'));
+items = JSON.parse(localStorage.getItem('items'));
+purchases = JSON.parse(localStorage.getItem('purchases'));
+customers = JSON.parse(localStorage.getItem('customers'));
+
+if (localseller) {
+  let filteredItems = items.filter((item) => item.sellerId === localseller.id);
+  console.log('Filtered items:', filteredItems);
+  sellerItemsDiv.innerHTML = filteredItems
+    .map((item) => itemsToCard(item))
+    .join('');
+}
+
 let sellerItemsSoldDiv = document.querySelector('#sale-history-list');
 
 if (purchases) {
-  let soldItems = Object.values(purchases.items).filter((purchase) => {
-    return purchase.seller === username;
-  });
+  
   function showSellerItemsSold() {
-    sellerItemsSoldDiv.innerHTML = soldItems
+    sellerItemsSoldDiv.innerHTML = purchases
       .map((item) => itemsToCardSold(item))
       .join('');
   }
@@ -69,8 +85,9 @@ if (purchases) {
 }
 
 function showSellerItems() {
-  console.log('Seller items:', sellerItems);
-  sellerItemsDiv.innerHTML = sellerItems
+  let filteredItems = items.filter((item) => item.sellerId === localseller.id);
+  console.log('Seller items:', filteredItems);
+  sellerItemsDiv.innerHTML = filteredItems
     .map((item) => itemsToCard(item))
     .join('');
 }
@@ -101,10 +118,10 @@ function itemsToCardSold(item) {
             </div>
         `;
 
-function getCustomerUsername(customerId) {
-  let customer = customers.find((customer) => customer.id === customerId);
-  return customer ? customer.username : 'Unknown';
-}
+  function getCustomerUsername(customerId) {
+    let customer = customers.find((customer) => customer.id === customerId);
+    return customer ? customer.username : 'Unknown';
+  }
 }
 
 function updateItem(e) {
@@ -149,4 +166,3 @@ function goToLogin() {
   location.href = `login.html`;
   localStorage.removeItem('users');
 }
-
