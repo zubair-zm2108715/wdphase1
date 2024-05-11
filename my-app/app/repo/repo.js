@@ -240,6 +240,18 @@ class Repo {
         },
       });
 
+      // Update item's quantity
+      await prisma.item.update({
+        where: {
+          id: itemId,
+        },
+        data: {
+          quantity: {
+            decrement: quantity,
+          },
+        },
+      });
+
       // Update customer's moneyBalance
       await prisma.customer.update({
         where: {

@@ -147,28 +147,6 @@ function backToHome() {
 }
 function goToLogin() {
   location.href = `login.html`;
+  localStorage.removeItem('users');
 }
 
-function uploadItem() {
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get('username');
-  let itemName = document.getElementById('itemName').value;
-  let price = document.getElementById('price').value;
-  let quantity = document.getElementById('quantity').value;
-  let picture = document.getElementById('picture').value;
-  let details = document.getElementById('details').value;
-  let id = items.items.length + 1;
-  let item = {
-    id: id,
-    name: itemName,
-    price: price,
-    quantity: quantity,
-    seller: username,
-    image_url: picture,
-    description: details,
-  };
-  console.log(items);
-  items.items.push(item);
-  localStorage.setItem('items', JSON.stringify(items));
-  window.items = items;
-}

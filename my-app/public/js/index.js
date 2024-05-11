@@ -70,13 +70,15 @@ function itemsToCard(item) {
         </div>`;
 }
 function toProductPage(id) {
-  if(loggedcustomer == null){
-    loggedcustomer = {isLogged: false};
+  if (loggedcustomer == null) {
+    loggedcustomer = { isLogged: false };
     alert('You must be logged in as a customer to purchase a product.');
     location.href = `login.html`;
   }
   if (loggedcustomer.isLogged) {
-    let customer = customers.find((customer) => customer.username === loggedcustomer.username);
+    let customer = customers.find(
+      (customer) => customer.username === loggedcustomer.username
+    );
     let product = items.find((item) => item.id === id);
     console.log(customer.money_balance);
     console.log(product.price);
@@ -85,21 +87,17 @@ function toProductPage(id) {
     } else {
       location.href = `purchase-item.html?id=${id}&username=${loggedcustomer.username}`;
     }
-  } 
+  }
 }
 
 function updateLoginButton() {
   let loginButton = document.getElementById('loginbutton');
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get('username');
-  isCustomerLoggedIn(username).then(function (isLoggedIn) {
-    if (isLoggedIn == true) {
-      loginButton.innerHTML = 'Logout';
+    if (loggedcustomer) {
+      loginButton.textContent = 'Logout';
     } else {
-      loginButton.innerHTML = 'Login';
+      loginButton.textContent = 'Login';
     }
-  });
-}
+  }
 
 // Call the function when the page loads
 window.onload = updateLoginButton;
@@ -109,8 +107,13 @@ function purchaseHistoryButton() {
   let username = params.get('username');
 
   if (username == null) {
-    alert('You must be logged in as a customer to show purchase history.');
-    location.href = `login.html`;
+    location.href = `purchase-history.html?username=${loggedcustomer.username}`;
+    if (loggedcustomer == null) {
+      alert(
+        'You must be logged in as a customer to view your purchase history.'
+      );
+      location.href = `login.html`;
+    }
   } else {
     location.href = `purchase-history.html?username=${username}`;
   }

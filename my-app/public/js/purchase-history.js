@@ -26,10 +26,6 @@ fetch('http://localhost:3000/api/customer/')
   })
   .catch(console.error);
 
-/* users = JSON.parse(localStorage.getItem("users"));
-items = JSON.parse(localStorage.getItem("items"));
-purchases = JSON.parse(localStorage.getItem("purchases")); */
-
 function purchaseHistory() {
   let purchaseHistory = document.querySelector('#purchase-history');
 
@@ -57,4 +53,5 @@ function getSellerUsername(sellerId) {
 }
 function goToLogin() {
   location.href = `login.html`;
+  localStorage.removeItem('users');
 }

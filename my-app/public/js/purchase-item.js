@@ -1,6 +1,3 @@
-
-
-
 fetch('http://localhost:3000/api/item').then((response) => {
   response.json().then((data) => {
     items = data;
@@ -9,7 +6,22 @@ fetch('http://localhost:3000/api/item').then((response) => {
     let product = items.find((item) => item.id == id);
     // set the product in the localStorage
     localStorage.setItem('product', JSON.stringify(product));
+    container = document.querySelector('.container1');
     container.innerHTML = productDetails(product);
+    function productDetails(item) {
+      return `
+      <img class="img" src="${item.image}">
+      <div id="productDetails">
+        <h2>Product Details</h2>
+        <p class="productName">${item.name}</p>
+        <p class="price">${item.price}</p>
+        <p class="description">
+          ${item.description}
+        </p>
+      </div>
+    </div>
+  `;
+    }
   });
 }, console.error);
 
@@ -46,9 +58,11 @@ function purchaseItem() {
 
   if (product.quantity < purchaseQuantity) {
     alert('Insufficient quantity');
+    backToHome();
   }
   if (customer.moneyBalance < totalCost) {
     alert('Insufficient funds');
+    return backToHome();
   }
 
   data = {
@@ -66,23 +80,24 @@ function purchaseItem() {
   })
     .then((response) => response.json())
     .then((responseData) => {
+      console.log('Purchase response:', responseData);
       if (responseData.message === 'Purchase successful') {
         // Redirect to home page after successful purchase
         alert('Purchase successful');
-        window.location.href = `index.html?username=${customer.username}`;
+        location.href = `index.html?username=${customer.username}`;
       } else {
         throw new Error(responseData.message);
       }
     })
     .catch((error) => {
       // Display error message to the user
-      console.error('Purchase error:', error.message);
-      alert('Purchase failed. Please try again later.');
+      location.href = 'index.html';
     });
 
   alert(
     `You have successfully purchased ${purchaseQuantity} ${product.name}(s) for a total cost of $${totalCost}. Thank you for shopping with us!`
   );
+  window.location.href = `index.html`;
 }
 function backToHome() {
   location.href = 'index.html';

@@ -32,10 +32,7 @@ function backToHome() {
 
 items = JSON.parse(localStorage.getItem('items'));
 
-function getSellerId(username) {
-  let seller = sellers.find((seller) => seller.username === username);
-  return seller.id;
-}
+localseller = JSON.parse(localStorage.getItem('sellers'));
 
 function uploadItem() {
   let itemName = document.getElementById('itemName').value;
@@ -48,11 +45,12 @@ function uploadItem() {
     name: itemName,
     price: price,
     quantity: quantity,
-    sellerId: parseInt(getSellerId(username)),
+    sellerId: parseInt(localseller.id),
     image: picture,
     description: details,
     category: category,
   };
+
   fetch('http://localhost:3000/api/item', {
     method: 'POST',
     headers: {
@@ -60,14 +58,34 @@ function uploadItem() {
     },
     body: JSON.stringify(newItem),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      window.location.href = `seller.html?username=${seller.username}`;
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     })
-    .catch((error) => console.error('Error uploading item:', error));
+    .then((data) => {
+      // Request completed successfully
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    })
+    .finally(() => {
+      console.log('Request completed');
+      goToSeller(); // Redirect to the seller page
+    });
+}
 
+function goToSeller() {
+  location.href = `seller.html?username=${localseller.username}`;
 }
 
 function goToLogin() {
   location.href = `login.html`;
+  localStorage.removeItem('seller');
+}
+
+function goToSeller() {
+  location.href = `seller.html?username=${localseller.username}`;
 }
