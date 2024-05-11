@@ -58,6 +58,20 @@ class Repo {
     });
   }
 
+  async getTopCategoriesBySales() {
+    return await prisma.order.groupBy({
+      by: ['sellerId'],
+      orderBy: {
+        _sum: {
+          quantity: 'desc',
+        },
+      },
+      _sum: {
+        quantity: true,
+      },
+    });
+  }
+
   async getAverageQuantitySoldPerProduct() {
     return await prisma.order.groupBy({
       by: ['itemId'],

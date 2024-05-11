@@ -47,7 +47,7 @@ export default function Home() {
       } catch (error) {
         console.error('Error fetching sellers:', error);
       }
-    }; // Add a comma here
+    };
     fetchSellers();
     fetchStats();
     fetchItems();
@@ -67,6 +67,11 @@ export default function Home() {
   function getSellerUsername(sellerId) {
     let seller = sellers.find((seller) => seller.id === sellerId);
     return seller ? seller.username : 'Unknown';
+  }
+
+  function getItemCategory(itemId) {
+    let item = items.find((item) => item.id === itemId);
+    return item ? item.category : 'Unknown';
   }
 
   const BarChartData_getAverageQuantitySoldPerProduct =
@@ -89,20 +94,19 @@ export default function Home() {
       quantity: item._sum.quantity,
     }));
 
-  const BarChartData_totalRevenuePerHour =
+  const topCategoriesBySalesData =
     stats &&
-    stats.totalRevenuePerHour.map((item) => ({
-      name: new Date(item.date).getHours(),
-      totalPrice: item._sum.totalPrice,
+    stats.topProductsBySales.map((item) => ({
+      name: `${getItemCategory(item.itemId)}`,
+      quantity: item._sum.quantity,
     }));
+
   const averagePurchaseAmountPerCustomerData =
     stats &&
     stats.averagePurchaseAmountPerCustomer.map((item) => ({
       name: `${getCustomerUsername(item.customerId)}`,
       averagePurchaseAmount: item._avg.totalPrice,
     }));
-
-  // Extracting data for Pie Chart
 
   const customersPerLocationData =
     stats &&
@@ -114,13 +118,23 @@ export default function Home() {
   return (
     <div className="app">
       <h1>Statistics Page</h1>
-      <button onClick={() => (window.location.href = '/index.html')}>Home</button>
+      <button onClick={() => (window.location.href = '/index.html')}>
+        Home
+      </button>
       {stats && (
         <div className="dashboard">
           <div className="chart-container">
             <h2>Top Products by Sales</h2>
             <BarChart
               data={topProductsBySalesData}
+              datakey="quantity"
+              nameSize={30}
+            />
+          </div>
+          <div className="chart-container">
+            <h2>Top Categories by Sales</h2>
+            <BarChart
+              data={topCategoriesBySalesData}
               datakey="quantity"
               nameSize={30}
             />
@@ -150,14 +164,6 @@ export default function Home() {
               data={averagePurchaseAmountPerCustomerData}
               datakey="averagePurchaseAmount"
               nameSize={30}
-            />
-          </div>
-          <div className="chart-container">
-            <h2>Total Revenue Per Hour</h2>
-            <BarChart
-              data={BarChartData_totalRevenuePerHour}
-              datakey="totalPrice"
-              nameSize={5}
             />
           </div>
         </div>
