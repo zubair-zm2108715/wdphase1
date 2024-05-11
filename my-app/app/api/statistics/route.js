@@ -5,14 +5,12 @@ export async function GET(request) {
     const getAverageQuantitySoldPerProduct =
       await repo.getAverageQuantitySoldPerProduct();
     const topProductsBySales = await repo.getTopProductsBySales();
-    const getTopCategoriesBySales = await repo.getTopCategoriesBySales();
     const customersPerLocation = await repo.getcustomersPerLocation();
     const averagePurchaseAmountPerCustomer =
       await repo.getAveragePurchaseAmountPercustomer();
     const totalPurchasesPerSeller = await repo.getTotalPurchasesPerSeller();
 
     return Response.json({
-      getTopCategoriesBySales,
       getAverageQuantitySoldPerProduct,
       topProductsBySales,
       customersPerLocation,

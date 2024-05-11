@@ -131,14 +131,7 @@ export default function Home() {
               nameSize={30}
             />
           </div>
-          <div className="chart-container">
-            <h2>Top Categories by Sales</h2>
-            <BarChart
-              data={topCategoriesBySalesData}
-              datakey="quantity"
-              nameSize={30}
-            />
-          </div>
+          
           <div className="chart-container">
             <h2>Customers Per Location</h2>
             <Piechart data={customersPerLocationData} datakey="count" />
@@ -163,6 +156,14 @@ export default function Home() {
             <BarChart
               data={averagePurchaseAmountPerCustomerData}
               datakey="averagePurchaseAmount"
+              nameSize={30}
+            />
+          </div>
+          <div className="chart-container">
+            <h2>Top Categories by Sales</h2>
+            <BarChart
+              data={topCategoriesBySalesData}
+              datakey="quantity"
               nameSize={30}
             />
           </div>

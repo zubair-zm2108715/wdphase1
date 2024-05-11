@@ -58,20 +58,6 @@ class Repo {
     });
   }
 
-  async getTopCategoriesBySales() {
-    return await prisma.order.groupBy({
-      by: ['sellerId'],
-      orderBy: {
-        _sum: {
-          quantity: 'desc',
-        },
-      },
-      _sum: {
-        quantity: true,
-      },
-    });
-  }
-
   async getAverageQuantitySoldPerProduct() {
     return await prisma.order.groupBy({
       by: ['itemId'],
@@ -110,39 +96,6 @@ class Repo {
     });
   }
 
-  async getTotalRevenuePerHour(year) {
-    try {
-      return await prisma.order.groupBy({
-        select: {
-          _sum: {
-            select: {
-              totalPrice: true,
-            },
-          },
-          date: true,
-        },
-        by: ['date'],
-        where: {
-          AND: [
-            {
-              date: {
-                gte: new Date(year, 0, 1), // Start of the year
-              },
-            },
-            {
-              date: {
-                lt: new Date(year, 12, 1), // Start of the next year
-              },
-            },
-          ],
-        },
-      });
-    } catch (error) {
-      throw new Error(
-        'Error fetching total revenue per month: ' + error.message
-      );
-    }
-  }
 
   async login(username, password) {
     try {
