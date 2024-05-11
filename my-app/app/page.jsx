@@ -118,14 +118,6 @@ export default function Home() {
       {stats && (
         <div className="dashboard">
           <div className="chart-container">
-            <h2>Total Revenue Per Hour</h2>
-            <BarChart
-              data={BarChartData_totalRevenuePerHour}
-              datakey="totalPrice"
-              nameSize={5}
-            />
-          </div>
-          <div className="chart-container">
             <h2>Top Products by Sales</h2>
             <BarChart
               data={topProductsBySalesData}
@@ -158,6 +150,14 @@ export default function Home() {
               data={averagePurchaseAmountPerCustomerData}
               datakey="averagePurchaseAmount"
               nameSize={30}
+            />
+          </div>
+          <div className="chart-container">
+            <h2>Total Revenue Per Hour</h2>
+            <BarChart
+              data={BarChartData_totalRevenuePerHour}
+              datakey="totalPrice"
+              nameSize={5}
             />
           </div>
         </div>

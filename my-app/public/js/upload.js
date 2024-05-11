@@ -57,8 +57,9 @@ function uploadItem(event) {
     description: details,
     category: category,
   };
+  items = JSON.parse(localStorage.getItem('items'));
   items.push(newItem);
-  localStorage.setItem('items', JSON.stringify(items));
+  items = localStorage.setItem('items', JSON.stringify(items));
   fetch('http://localhost:3000/api/item', {
     method: 'POST',
     headers: {

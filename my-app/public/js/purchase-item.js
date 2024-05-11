@@ -51,7 +51,11 @@ function productDetails(item) {
   `;
 }
 
-function purchaseItem() {
+product = JSON.parse(localStorage.getItem('product'));
+
+function purchaseItem(event) {
+  event.preventDefault();
+  product = JSON.parse(localStorage.getItem('product'));
   console.log(product);
   let purchaseQuantity = parseInt(document.getElementById('p_quantity').value);
   let totalCost = product.price * purchaseQuantity;
